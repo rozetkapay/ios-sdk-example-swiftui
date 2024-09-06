@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1816D808-78D6-4DD2-8D8D-7CB601A345D3"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84629DF6-7677-4CA8-A9B1-40856D4CE60A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/AddNewCardViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "validateExpiryDate(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D4A1EAA-C636-441A-B9BC-4163B35DF5E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RozetkaPay.Example.SwiftUI/View/CardsListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "tokenizationFinished(result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9D4A1EAA-C636-441A-B9BC-4163B35DF5E5 - 6ada0c88d1d20cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RozetkaPay_Example_SwiftUI.CardsListView.tokenizationFinished(result: Swift.Result&lt;RozetkaPaySDK.TokenizedCard, RozetkaPaySDK.TokenizationError&gt;) -&gt; ()"
+                  moduleName = "RozetkaPay.Example.SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPay.Example.SwiftUI/RozetkaPay.Example.SwiftUI/View/CardsListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106">
+               </Location>
+               <Location
+                  uuid = "9D4A1EAA-C636-441A-B9BC-4163B35DF5E5 - 6ada0c88d1d20cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RozetkaPay_Example_SwiftUI.CardsListView.tokenizationFinished(result: Swift.Result&lt;RozetkaPaySDK.TokenizedCard, RozetkaPaySDK.TokenizationError&gt;) -&gt; ()"
+                  moduleName = "RozetkaPay.Example.SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPay.Example.SwiftUI/RozetkaPay.Example.SwiftUI/View/CardsListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43796482-2E10-4B2D-8661-D02D7D09424A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RozetkaPay.Example.SwiftUI/View/CardsListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "tokenizationFinished(result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

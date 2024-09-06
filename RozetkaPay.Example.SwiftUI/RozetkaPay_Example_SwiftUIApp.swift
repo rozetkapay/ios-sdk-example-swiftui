@@ -6,9 +6,20 @@
 //
 
 import SwiftUI
+import RozetkaPaySDK
 
 @main
 struct RozetkaPay_Example_SwiftUIApp: App {
+    
+    init() {
+        RozetkaPaySdk.initSdk(
+            appContext: UIApplication.shared,
+            mode: .development,
+            enableLogging: true,
+            validationRules: RozetkaPaySdkValidationRules()
+        )
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
