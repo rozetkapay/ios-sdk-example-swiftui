@@ -31,17 +31,21 @@ struct CardsListView: View {
             
             List(viewModel.items) { item in
                 HStack {
-                    Image(item.paymentSystem.logoName)
-                        .resizable()
-                        .frame(width: 30, height: 20)
+                    CardView(
+                        cardTypeImage: item.paymentSystem.logoName,
+                        cardName: item.name,
+                        maskedNumber: item.maskedNumber
+                    )
                     
-                    VStack(alignment: .leading) {
-                        Text(item.name)
-                            .font(.headline)
-                        Text(item.maskedNumber)
-                            .font(.subheadline)
-                    }
                 }
+                .listRowInsets(
+                    EdgeInsets(
+                        top: 5,
+                        leading: 20,
+                        bottom: 5,
+                        trailing: 20)
+                )
+                .listRowSeparator(.hidden)
             }
             .listStyle(PlainListStyle())
             
@@ -126,6 +130,36 @@ struct CardsListView: View {
                 maskedNumber: tokenizedCard.cardInfo?.maskedNumber ,
                 cardToken: tokenizedCard.token
             )
+        )
+    }
+}
+
+struct CardView: View {
+    var cardTypeImage: String
+    var cardName: String
+    var maskedNumber: String
+    
+    var body: some View {
+        HStack {
+            Image(cardTypeImage)
+                .resizable()
+                .frame(width: 30, height: 20)
+                .padding(.top, 8)
+            
+            VStack(alignment: .leading) {
+                Text(cardName)
+                    .font(.headline)
+                
+                Text(maskedNumber)
+                    .font(.subheadline)
+            }
+            Spacer()
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.gray.opacity(0.4),
+                        lineWidth: 1)
         )
     }
 }
