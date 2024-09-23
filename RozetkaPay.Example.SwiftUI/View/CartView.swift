@@ -57,7 +57,7 @@ struct CartView: View {
             RozetkaPaySDK.PayView(
                 parameters: PaymentParameters(
                     client: viewModel.clientParameters,
-                    viewFieldsParameters: PaymentViewParameters(
+                    viewParameters: PaymentViewParameters(
                         cardNameField: .none,
                         emailField: .none,
                         cardholderNameField: .none
