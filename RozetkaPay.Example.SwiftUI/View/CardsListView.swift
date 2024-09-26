@@ -74,14 +74,13 @@ struct CardsListView: View {
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                 }
             }
         }
-        .navigationTitle("Your Cart")
-        .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $isSheetPresented) {
-            
+
+//        .sheet(isPresented: $isSheetPresented) {
+        .fullScreenCover(isPresented: $isSheetPresented) {
             RozetkaPaySDK.TokenizationView(
                 parameters: TokenizationParameters(
                     client: viewModel.clientWidgetParameters,
@@ -91,15 +90,15 @@ struct CardsListView: View {
                         cardholderNameField: .optional
                     )
                 ),
-                callback: { result in
-                    tokenizationFinished(result: result)
+                onResultCallback: { result in
+                    handleResult(result)
                     isSheetPresented.toggle()
                 }
             )
         }
     }
     
-    private func tokenizationFinished(result: TokenizationResult) {
+    private func handleResult(_ result: TokenizationResult) {
         switch result {
         case .success(let value):
             addNewCard(tokenizedCard: value)

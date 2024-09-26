@@ -24,5 +24,5 @@ extension Logger {
     static let tokenizedCard = Logger(subsystem: subsystem, category: "tokenizedCard")
     
     /// All logs related to tracking and analytics.
-    static let payByCard = Logger(subsystem: subsystem, category: "payByCard")
+    static let payment = Logger(subsystem: subsystem, category: "payment")
 }

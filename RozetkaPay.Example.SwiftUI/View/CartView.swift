@@ -51,12 +51,12 @@ struct CartView: View {
                 }
             }
         }
-        .navigationTitle("Your Cart")
-        .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $isSheetPresented) {
             RozetkaPaySDK.PayView(
                 parameters: PaymentParameters(
-                    client: viewModel.clientParameters,
+                    client: ClientAuthParameters(
+                        token: Credentials.DEV_AUTH_TOKEN
+                    ),
                     viewParameters: PaymentViewParameters(
                         cardNameField: .none,
                         emailField: .none,
@@ -64,17 +64,20 @@ struct CartView: View {
                     ),
                     themeConfigurator: RozetkaPayThemeConfigurator(),
                     amountParameters:  PaymentParameters.AmountParameters(
-                        amount: viewModel.totalPrice,
+                        amount: viewModel.totalAmount,
+                        tax: viewModel.totalTax,
+                        total: viewModel.totalPrice,
                         currencyCode: Config.defaultCurrencyCode
                     ),
                     orderId: viewModel.orderId,
                     callbackUrl: Config.exampleCallbackUrl,
                     isAllowTokenization: true,
-                    applePayConfig: viewModel.testApplePayConfig
-                )
-            ) { result in
-                isSheetPresented.toggle()
-            }
+                    applePayConfig: viewModel.testApplePayConfig)
+                ,
+                onResultCallback: { result in
+                    handleResult(result)
+                    isSheetPresented.toggle()
+                })
         }
     }
     
@@ -144,39 +147,26 @@ struct CartView: View {
         }
     }
     
-    private func tokenizationFinished(result: TokenizationResult) {
-//        switch result {
-//        case .success(let value):
-//            addNewCard(tokenizedCard: value)
-//        case .failure(let error):
-//            switch error {
-//            case let .failed(message, _):
-//                
-//                if let message = message, !message.isEmpty {
-//                    Logger.tokenizedCard.warning(
-//                        "⚠️ WARNING: An error with message \"\(message)\". Please try again. ⚠️"
-//                    )
-//                } else {
-//                    Logger.tokenizedCard.warning(
-//                        "⚠️ WARNING: An error occurred during tokenization process. Please try again. ⚠️"
-//                    )
-//                }
-//            case .cancelled:
-//                Logger.tokenizedCard.info("Tokenization was cancelled")
-//            }
-//        }
+    private func handleResult(_ result: PaymentResult) {
+        switch result {
+        case let .pending(orderId, paymentId):
+            Logger.payment.info("Payment pending")
+        case let .complete(orderId, paymentId):
+            Logger.payment.info("Payment complete")
+        case let .failed(paymentId, message, errorDescription):
+            if let message = message, !message.isEmpty {
+                Logger.payment.warning(
+                    "⚠️ WARNING: An error with message \"\(message)\", paymentId: \"\(paymentId ?? "")\". Please try again. ⚠️"
+                )
+            } else {
+                Logger.payment.warning(
+                    "⚠️ WARNING: An error occurred during payment process. Please try again. ⚠️"
+                )
+            }
+        case .cancelled:
+            Logger.payment.info("Payment was cancelled")
+        }
     }
-    
-//    private func addNewCard(tokenizedCard: TokenizedCard) {
-//        viewModel.add(
-//            item: CardToken(
-//                paymentSystem: tokenizedCard.cardInfo?.paymentSystem,
-//                name: tokenizedCard.name,
-//                maskedNumber: tokenizedCard.cardInfo?.maskedNumber ,
-//                cardToken: tokenizedCard.token
-//            )
-//        )
-//    }
 }
 
 #Preview {

@@ -9,11 +9,11 @@ import Foundation
 import RozetkaPaySDK
 
 final class CartViewModel: ObservableObject {
-    var clientParameters = ClientAuthParameters(
+    var clientParameters: ClientAuthParameters = ClientAuthParameters(
         token: Credentials.DEV_AUTH_TOKEN
     )
     
-    var testApplePayConfig = ApplePayConfig.Test(
+    var testApplePayConfig: ApplePayConfig = ApplePayConfig.Test(
         merchantIdentifier: Credentials.APPLE_PAY_MERCHANT_ID,
         merchantName: Credentials.APPLE_PAY_MERCHANT_NAME
     )
@@ -22,9 +22,18 @@ final class CartViewModel: ObservableObject {
     
     @Published var orderId: String
     
-    var totalPrice: Double {
+    var totalAmount: Double {
         items.reduce(0) { $0 + $1.price * Double($1.quantity) }
     }
+    
+    var totalTax: Double {
+        (totalAmount * 0.2).nextUp
+    }
+    
+    var totalPrice: Double {
+        totalAmount + totalTax
+    }
+    
     
     //MARK: - Init
     init(

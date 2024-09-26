@@ -31,9 +31,7 @@ struct ContentView: View {
                         items: CartViewModel.mocData
                     )
                 ) {
-                    Text(
-                        "Pay"
-                    )
+                    Text("Pay")
                         .font(.title)
                         .padding()
                         .frame(maxWidth: .infinity)
