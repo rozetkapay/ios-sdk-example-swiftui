@@ -16,6 +16,7 @@
 		D11398172C72767D0079BB97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11398162C72767D0079BB97 /* Assets.xcassets */; };
 		D113981B2C72767D0079BB97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D113981A2C72767D0079BB97 /* Preview Assets.xcassets */; };
 		D11398232C7276A30079BB97 /* RozetkaPaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = D11398222C7276A30079BB97 /* RozetkaPaySDK */; };
+		D11AF5F22CA9EA73006C9CA0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF5F12CA9EA73006C9CA0 /* CardView.swift */; };
 		D155F0FD2C728ACD009FC787 /* CardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155F0FC2C728ACD009FC787 /* CardToken.swift */; };
 		D155F0FF2C728B85009FC787 /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155F0FE2C728B85009FC787 /* CardsListViewModel.swift */; };
 		D188FB762C84A74400892D48 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB752C84A74400892D48 /* Credentials.swift */; };
@@ -36,6 +37,7 @@
 		D11398162C72767D0079BB97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11398182C72767D0079BB97 /* RozetkaPay_Example_SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RozetkaPay_Example_SwiftUI.entitlements; sourceTree = "<group>"; };
 		D113981A2C72767D0079BB97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D11AF5F12CA9EA73006C9CA0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D155F0FC2C728ACD009FC787 /* CardToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToken.swift; sourceTree = "<group>"; };
 		D155F0FE2C728B85009FC787 /* CardsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewModel.swift; sourceTree = "<group>"; };
 		D188FB752C84A74400892D48 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				D11398142C72767C0079BB97 /* ContentView.swift */,
 				D10C61882C80AA4D00AFC8BE /* CartView.swift */,
 				D10C61862C80980800AFC8BE /* CardsListView.swift */,
+				D11AF5F12CA9EA73006C9CA0 /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D11AF5F22CA9EA73006C9CA0 /* CardView.swift in Sources */,
 				D10C61892C80AA4D00AFC8BE /* CartView.swift in Sources */,
 				D188FB7B2C84C14400892D48 /* LoggerExtensions.swift in Sources */,
 				D155F0FF2C728B85009FC787 /* CardsListViewModel.swift in Sources */,
@@ -359,6 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RozetkaPay.Example.SwiftUI/RozetkaPay_Example_SwiftUI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RozetkaPay.Example.SwiftUI/Preview Content\"";
@@ -366,7 +371,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = RozetkaPay.Example.SwiftUI;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -382,8 +387,9 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rozetkapay.RozetkaPay-Example-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rozetkapay.RozetkaPay-Example-SwiftUI-Bars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -399,6 +405,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RozetkaPay.Example.SwiftUI/RozetkaPay_Example_SwiftUI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RozetkaPay.Example.SwiftUI/Preview Content\"";
@@ -406,7 +413,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = RozetkaPay.Example.SwiftUI;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -422,8 +429,9 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rozetkapay.RozetkaPay-Example-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rozetkapay.RozetkaPay-Example-SwiftUI-Bars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

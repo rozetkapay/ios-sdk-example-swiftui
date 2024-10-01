@@ -42,7 +42,4 @@ struct CardToken: Identifiable {
     mutating func setup(cardToken: String? = nil) {
         self.cardToken = cardToken
     }
-    
-    
-    
 }
