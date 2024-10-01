@@ -78,8 +78,6 @@ struct CardsListView: View {
                 }
             }
         }
-
-//        .sheet(isPresented: $isSheetPresented) {
         .fullScreenCover(isPresented: $isSheetPresented) {
             RozetkaPaySDK.TokenizationView(
                 parameters: TokenizationParameters(
