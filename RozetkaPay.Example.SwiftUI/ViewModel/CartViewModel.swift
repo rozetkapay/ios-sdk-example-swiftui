@@ -34,6 +34,9 @@ final class CartViewModel: ObservableObject {
         totalAmount + totalTax
     }
     
+    var shipment: String {
+        "Free"
+    }
     
     //MARK: - Init
     init(

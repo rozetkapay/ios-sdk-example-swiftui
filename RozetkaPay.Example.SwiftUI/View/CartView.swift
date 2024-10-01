@@ -140,7 +140,7 @@ struct CartView: View {
                 Text("Shipment:")
                     .font(.subheadline)
                 Spacer()
-                Text("Free")
+                Text(viewModel.shipment)
                     .font(.subheadline)
             }
             .padding([.leading, .trailing])

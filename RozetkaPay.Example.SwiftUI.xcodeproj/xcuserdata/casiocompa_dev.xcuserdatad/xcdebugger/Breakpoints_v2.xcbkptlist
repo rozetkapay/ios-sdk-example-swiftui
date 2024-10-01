@@ -24,44 +24,136 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9D4A1EAA-C636-441A-B9BC-4163B35DF5E5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RozetkaPay.Example.SwiftUI/View/CardsListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "tokenizationFinished(result:)"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "handleResult(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A195E11E-EB4B-4CAA-99F4-B276657C6C12"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/Network/TokenizationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "tokenizeCard(apiKey:model:result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB0C8677-D0C0-45DA-A75C-07769A92248A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/Network/TokenizationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "tokenizeCard(apiKey:model:result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8ADB1ED2-7933-43DA-9EF8-FCF1B91921BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/Network/TokenizationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "tokenizeCard(apiKey:model:result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B194952-CD82-456D-A820-1F484A4C17DC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "execute(_:errorType:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9D4A1EAA-C636-441A-B9BC-4163B35DF5E5 - 6ada0c88d1d20cc"
+                  uuid = "4B194952-CD82-456D-A820-1F484A4C17DC - 1d577c2c807bc52e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "RozetkaPay_Example_SwiftUI.CardsListView.tokenizationFinished(result: Swift.Result&lt;RozetkaPaySDK.TokenizedCard, RozetkaPaySDK.TokenizationError&gt;) -&gt; ()"
+                  symbolName = "(3) suspend resume partial function for RozetkaPaySDK.APIConfiguration.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_1: Swift.Decodable, &#x3c4;_1_1: Swift.Error&gt;(_: &#x3c4;_1_0.Type, errorType: Swift.Optional&lt;&#x3c4;_1_1.Type&gt;) async throws -&gt; &#x3c4;_1_0"
                   moduleName = "RozetkaPay.Example.SwiftUI"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPay.Example.SwiftUI/RozetkaPay.Example.SwiftUI/View/CardsListView.swift"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106">
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
                </Location>
                <Location
-                  uuid = "9D4A1EAA-C636-441A-B9BC-4163B35DF5E5 - 6ada0c88d1d20cc"
+                  uuid = "4B194952-CD82-456D-A820-1F484A4C17DC - deb7dd0f24264d22"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "RozetkaPay_Example_SwiftUI.CardsListView.tokenizationFinished(result: Swift.Result&lt;RozetkaPaySDK.TokenizedCard, RozetkaPaySDK.TokenizationError&gt;) -&gt; ()"
+                  symbolName = "(7) suspend resume partial function for RozetkaPaySDK.APIConfiguration.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_1: Swift.Decodable, &#x3c4;_1_1: Swift.Error&gt;(_: &#x3c4;_1_0.Type, errorType: Swift.Optional&lt;&#x3c4;_1_1.Type&gt;) async throws -&gt; &#x3c4;_1_0"
                   moduleName = "RozetkaPay.Example.SwiftUI"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPay.Example.SwiftUI/RozetkaPay.Example.SwiftUI/View/CardsListView.swift"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106">
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
+               </Location>
+               <Location
+                  uuid = "4B194952-CD82-456D-A820-1F484A4C17DC - ceffb5368f10ef25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) suspend resume partial function for RozetkaPaySDK.APIConfiguration.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_1: Swift.Decodable, &#x3c4;_1_1: Swift.Error&gt;(_: &#x3c4;_1_0.Type, errorType: Swift.Optional&lt;&#x3c4;_1_1.Type&gt;) async throws -&gt; &#x3c4;_1_0"
+                  moduleName = "RozetkaPay.Example.SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
+               </Location>
+               <Location
+                  uuid = "4B194952-CD82-456D-A820-1F484A4C17DC - ff078efef9fb3124"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for RozetkaPaySDK.APIConfiguration.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_1: Swift.Decodable, &#x3c4;_1_1: Swift.Error&gt;(_: &#x3c4;_1_0.Type, errorType: Swift.Optional&lt;&#x3c4;_1_1.Type&gt;) async throws -&gt; &#x3c4;_1_0"
+                  moduleName = "RozetkaPay.Example.SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -69,16 +161,138 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "43796482-2E10-4B2D-8661-D02D7D09424A"
+            uuid = "85C70924-39F2-4E6A-A62A-A9AF09655606"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RozetkaPay.Example.SwiftUI/View/CardsListView.swift"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "tokenizationFinished(result:)"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "execute(_:errorType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "85C70924-39F2-4E6A-A62A-A9AF09655606 - 1d577c2c807bc591"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RozetkaPaySDK.APIConfiguration.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_1: Swift.Decodable, &#x3c4;_1_1: Swift.Error&gt;(_: &#x3c4;_1_0.Type, errorType: Swift.Optional&lt;&#x3c4;_1_1.Type&gt;) async throws -&gt; &#x3c4;_1_0"
+                  moduleName = "RozetkaPay.Example.SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162">
+               </Location>
+               <Location
+                  uuid = "85C70924-39F2-4E6A-A62A-A9AF09655606 - deb7dd0f24264d9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for RozetkaPaySDK.APIConfiguration.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_1: Swift.Decodable, &#x3c4;_1_1: Swift.Error&gt;(_: &#x3c4;_1_0.Type, errorType: Swift.Optional&lt;&#x3c4;_1_1.Type&gt;) async throws -&gt; &#x3c4;_1_0"
+                  moduleName = "RozetkaPay.Example.SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162">
+               </Location>
+               <Location
+                  uuid = "85C70924-39F2-4E6A-A62A-A9AF09655606 - ceffb5368f10ef9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) suspend resume partial function for RozetkaPaySDK.APIConfiguration.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_1: Swift.Decodable, &#x3c4;_1_1: Swift.Error&gt;(_: &#x3c4;_1_0.Type, errorType: Swift.Optional&lt;&#x3c4;_1_1.Type&gt;) async throws -&gt; &#x3c4;_1_0"
+                  moduleName = "RozetkaPay.Example.SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162">
+               </Location>
+               <Location
+                  uuid = "85C70924-39F2-4E6A-A62A-A9AF09655606 - ff078efef9fb319b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for RozetkaPaySDK.APIConfiguration.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_1: Swift.Decodable, &#x3c4;_1_1: Swift.Error&gt;(_: &#x3c4;_1_0.Type, errorType: Swift.Optional&lt;&#x3c4;_1_1.Type&gt;) async throws -&gt; &#x3c4;_1_0"
+                  moduleName = "RozetkaPay.Example.SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/casiocompa_dev/Developer/PaySDK/RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57C8D3B9-823C-4F99-9084-8AA6DDA3B45E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/Network/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "execute(_:errorType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E29C08AD-9D2C-408A-8DBE-314326D74B09"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/ViewModel/PayViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "startApplePayPayment()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D78A4654-902B-4844-A511-07B45C89713A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/ViewModel/PayViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "startApplePayPayment()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "664D481A-767F-427F-B339-7EA3BFD98F93"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RozetkaPaySDK/Sources/RozetkaPaySDK/ViewModel/PayViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "init(parameters:provideCardPaymentSystemUseCase:onResultCallback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
