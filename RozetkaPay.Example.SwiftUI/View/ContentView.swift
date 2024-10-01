@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -20,8 +24,12 @@ struct ContentView: View {
                         .padding()
                         .frame(maxWidth: .infinity)
                         .frame(height: 50)
-                        .background(Color.black)
-                        .foregroundColor(.white)
+                        .background(
+                            colorScheme == .dark ? Color.white : Color.black
+                        )
+                        .foregroundColor(
+                            colorScheme == .dark ? Color.black : Color.white
+                        )
                         .cornerRadius(10)
                 }
                 
