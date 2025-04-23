@@ -5,19 +5,17 @@
 //  Created by Ruslan Kasian Dev on 29.08.2024.
 //
 
-import OSLog
+
 import SwiftUI
 import RozetkaPaySDK
 
 struct CartView: View {
-    private enum Constants {
-        static let buttonCornerRadius: CGFloat = 16
-    }
-    
+    //MARK: - Properties
     @StateObject private var viewModel: CartViewModel
     @State private var isSheetPresented = false
     @Environment(\.presentationMode) var presentationMode
-
+    
+    //MARK: - Init
     public init(
         orderId: String,
         items: [Product]
@@ -30,99 +28,96 @@ struct CartView: View {
         )
     }
     
+    //MARK: - UI
     var body: some View {
         VStack(alignment: .leading) {
-            cartView
+            titleView
+            listView
             Spacer()
             shipmentView
             totalView
             Spacer()
             checkoutButton
         }
-        .navigationBarTitle("Your cart", displayMode: .inline)
+        .navigationBarTitle(Localization.cart_navigation_bar_title.description, displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.primary)
-                }
+                backButton
             }
         }
         .fullScreenCover(isPresented: $isSheetPresented) {
-            RozetkaPaySDK.PayView(
-                parameters: PaymentParameters(
-                    client: ClientAuthParameters(
-                        token: Credentials.DEV_AUTH_TOKEN
-                    ),
-                    viewParameters: PaymentViewParameters(
-                        cardNameField: .none,
-                        emailField: .none,
-                        cardholderNameField: .none
-                    ),
-                    themeConfigurator: RozetkaPayThemeConfigurator(),
-                    amountParameters:  PaymentParameters.AmountParameters(
-                        amount: viewModel.totalAmount,
-                        tax: viewModel.totalTax,
-                        total: viewModel.totalPrice,
-                        currencyCode: Config.defaultCurrencyCode
-                    ),
-                    orderId: viewModel.orderId,
-                    callbackUrl: Config.exampleCallbackUrl,
-                    isAllowTokenization: true,
-                    applePayConfig: viewModel.testApplePayConfig)
-                ,
-                onResultCallback: { result in
-                    handleResult(result)
-                    isSheetPresented.toggle()
-                })
+            checkoutView
+        }
+        .customAlert(item: $viewModel.alertItem)
+    }
+}
+
+//MARK: UI
+private extension CartView {
+    
+    ///
+    var titleView: some View {
+        Text(Localization.cart_title.description)
+            .font(.headline)
+            .padding([.leading, .top])
+    }
+    
+    ///
+    var backButton: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "chevron.left")
+                .foregroundColor(.primary)
         }
     }
     
-    private var checkoutButton: some View {
+    ///
+    var checkoutButton: some View {
         Button(action: {
             isSheetPresented.toggle()
         }) {
-            Text("Checkout")
+            Text(Localization.cart_checkout_button_title.description)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.green)
                 .font(.headline)
                 .foregroundColor(.white)
-                .cornerRadius(Constants.buttonCornerRadius)
+                .cornerRadius(Config.buttonCornerRadius)
         }
         .padding(.top, 20)
         .padding([.leading, .trailing])
     }
     
-    private var cartView: some View {
+    ///
+    var listView: some View {
         List(viewModel.items) { item in
             HStack {
-                Image(item.imageName)
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .cornerRadius(8)
-                VStack(alignment: .leading) {
-                    Text(item.name)
-                        .font(.headline)
-                    Text("\(item.quantity) x \(item.price, specifier: "%.2f")")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-                Spacer()
-                Text("\(item.price * Double(item.quantity), specifier: "%.2f")")
-                    .font(.body)
+                ProductView(
+                    name: item.name,
+                    price: item.price,
+                    quantity: item.quantity,
+                    imageName: item.imageName
+                )
             }
-            .padding(.vertical, 4)
+            .listRowInsets(
+                EdgeInsets(
+                    top: 5,
+                    leading: 20,
+                    bottom: 5,
+                    trailing: 20
+                )
+            )
+            .listRowSeparator(.hidden)
         }
         .listStyle(PlainListStyle())
     }
     
-    private var totalView: some View {
+    ///
+    var totalView: some View {
         HStack {
-            Text("Total:")
+            Text(Localization.cart_total_title.description)
                 .font(.title3)
                 .fontWeight(.bold)
             Spacer()
@@ -134,10 +129,11 @@ struct CartView: View {
         .padding([.leading, .trailing])
     }
     
-    private var shipmentView: some View {
+    ///
+    var shipmentView: some View {
         HStack {
             HStack {
-                Text("Shipment:")
+                Text(Localization.cart_shipment_title.description)
                     .font(.subheadline)
                 Spacer()
                 Text(viewModel.shipment)
@@ -147,28 +143,38 @@ struct CartView: View {
         }
     }
     
-    private func handleResult(_ result: PaymentResult) {
-        switch result {
-        case let .pending(orderId, paymentId):
-            Logger.payment.info("Payment pending")
-        case let .complete(orderId, paymentId):
-            Logger.payment.info("Payment complete")
-        case let .failed(paymentId, message, errorDescription):
-            if let message = message, !message.isEmpty {
-                Logger.payment.warning(
-                    "⚠️ WARNING: An error with message \"\(message)\", paymentId: \"\(paymentId ?? "")\". Please try again. ⚠️"
-                )
-            } else {
-                Logger.payment.warning(
-                    "⚠️ WARNING: An error occurred during payment process. Please try again. ⚠️"
-                )
+    ///
+    var checkoutView: some View {
+        RozetkaPaySDK.PayView(
+            parameters: PaymentParameters(
+                client: viewModel.clientParameters,
+                viewParameters: PaymentViewParameters(
+                    cardNameField: .none,
+                    emailField: .none,
+                    cardholderNameField: .none
+                ),
+                themeConfigurator: RozetkaPayThemeConfigurator(),
+                amountParameters:  PaymentParameters.AmountParameters(
+                    amount: viewModel.totalAmount,
+                    tax: viewModel.totalTax,
+                    total: viewModel.totalPrice,
+                    currencyCode: Config.defaultCurrencyCode
+                ),
+                orderId: viewModel.orderId,
+                callbackUrl: Config.exampleCallbackUrl,
+                isAllowTokenization: true,
+                applePayConfig: viewModel.testApplePayConfig)
+            ,
+            onResultCallback: { result in
+                viewModel.handleResult(result)
+                isSheetPresented.toggle()
             }
-        case .cancelled:
-            Logger.payment.info("Payment was cancelled")
-        }
+        )
     }
+    
 }
 
+//MARK: Preview
 #Preview {
     CartView(orderId: "test", items: CartViewModel.mocData)
 }

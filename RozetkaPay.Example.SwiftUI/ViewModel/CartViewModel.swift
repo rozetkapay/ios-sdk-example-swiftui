@@ -7,10 +7,12 @@
 
 import Foundation
 import RozetkaPaySDK
+import OSLog
 
 final class CartViewModel: ObservableObject {
-    var clientParameters: ClientAuthParameters = ClientAuthParameters(
-        token: Credentials.DEV_AUTH_TOKEN
+    var clientParameters = ClientAuthParameters(
+        token: Credentials.DEV_AUTH_TOKEN,
+        widgetKey: Credentials.WIDGET_KEY
     )
     
     var testApplePayConfig: ApplePayConfig = ApplePayConfig.Test(
@@ -19,8 +21,8 @@ final class CartViewModel: ObservableObject {
     )
     
     @Published var items: [Product]
-    
     @Published var orderId: String
+    @Published var alertItem: AlertItem?
     
     var totalAmount: Double {
         items.reduce(0) { $0 + $1.price * Double($1.quantity) }
@@ -35,7 +37,7 @@ final class CartViewModel: ObservableObject {
     }
     
     var shipment: String {
-        "Free"
+        Localization.cart_shipment_cost_free.description
     }
     
     //MARK: - Init
@@ -79,4 +81,69 @@ final class CartViewModel: ObservableObject {
             )
         ]
     }()
+    
+    func handleResult(_ result: PaymentResult) {
+        switch result {
+        case let .pending(orderId, paymentId, message, error):
+            alertItem = AlertItem(
+                type: .info,
+                title: "Pending",
+                message: "Payment \(paymentId ?? "Whithout paymentId") is pending. Order ID: \(orderId)"
+            )
+            Logger.payment.info(
+                "Payment \(paymentId ?? "Whithout paymentId" ) is pending. Order ID: \(orderId). Message: \(message ?? "No message"). Error: \(error?.localizedDescription ?? "No error description")"
+            )
+        case let .complete(orderId, paymentId):
+            alertItem = AlertItem(
+                type: .success,
+                title: "Successful",
+                message: "Payment \(paymentId) was successful. Order ID: \(orderId)"
+            )
+            Logger.payment.info(
+                "Payment \(paymentId) was successful. Order ID: \(orderId)"
+            )
+        case let .failed(error):
+            if error.code == .transactionAlreadyPaid {
+                alertItem = AlertItem(
+                    type: .warning,
+                    title: "Failed",
+                    message: "Order ID: \(orderId) already paid. "
+                )
+                Logger.payment.info(
+                    "⚠️ WARNING: Payment \(error.paymentId ?? "Whithout paymentId" ) already paid. Order ID: \(self.orderId)."
+                )
+                return
+            }
+            
+            if let message = error.message, !message.isEmpty {
+                alertItem = AlertItem(
+                    type: .error,
+                    title: "Failed",
+                    message: "Payment \(error.paymentId ?? "") failed with message: \(message)."
+                )
+                var errorText =  "⚠️ WARNING: An error with message \"\(message)\", paymentId: \"\(error.paymentId ?? "")\"."
+                
+  
+                errorText += " errorDescription: \(error.localizedDescription)."
+                errorText += "Please try again. ⚠️"
+                Logger.payment.warning("\(errorText)")
+            } else {
+                alertItem = AlertItem(
+                    type: .error,
+                    title: "Failed",
+                    message: "An unknown error occurred with payment \(error.paymentId ?? ""). Please try again."
+                )
+                Logger.payment.warning(
+                    "⚠️ WARNING: An error occurred during payment process. paymentId: \(error.paymentId ?? ""). Please try again. ⚠️"
+                )
+            }
+        case .cancelled:
+            alertItem = AlertItem(
+                type: .info,
+                title: "Cancelled",
+                message: "Payment was cancelled manually by the user."
+            )
+            Logger.payment.info("Payment was cancelled manually by user")
+        }
+    }
 }

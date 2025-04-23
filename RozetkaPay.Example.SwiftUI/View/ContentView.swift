@@ -17,9 +17,11 @@ struct ContentView: View {
             VStack(spacing: 20) {
 
                 NavigationLink(
-                    destination: CardsListView(items: CardsViewModel.mocData)
+                    destination: CardsListView(
+                        items: CardsViewModel.mocData
+                    )
                 ) {
-                    Text("Cards")
+                    Text(Localization.main_cards_button_title.description)
                         .font(.title)
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -35,11 +37,11 @@ struct ContentView: View {
                 
                 NavigationLink(
                     destination: CartView(
-                        orderId: "order_test_3232-445",
+                        orderId: generateOrderId(),
                         items: CartViewModel.mocData
                     )
                 ) {
-                    Text("Pay")
+                    Text(Localization.main_pay_button_title.description)
                         .font(.title)
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -50,11 +52,16 @@ struct ContentView: View {
                 }
             }
             .padding()
-            .navigationTitle("RozetkaPay.Example")
+            .navigationTitle(Localization.main_title.description)
         }
+    }
+    
+    private func generateOrderId() -> String {
+        return "order-apple-\(Int(Date().timeIntervalSince1970 * 1000))"
     }
 }
 
+//MARK: Preview
 #Preview {
     ContentView()
 }

@@ -19,9 +19,14 @@
 		D11AF5F22CA9EA73006C9CA0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF5F12CA9EA73006C9CA0 /* CardView.swift */; };
 		D155F0FD2C728ACD009FC787 /* CardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155F0FC2C728ACD009FC787 /* CardToken.swift */; };
 		D155F0FF2C728B85009FC787 /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155F0FE2C728B85009FC787 /* CardsListViewModel.swift */; };
+		D17E0D522DB6E0FE00F8D934 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D17E0D512DB6E0FE00F8D934 /* Localizable.xcstrings */; };
+		D17E0DB62DB6F55500F8D934 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E0DB52DB6F55500F8D934 /* Localization.swift */; };
 		D188FB762C84A74400892D48 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB752C84A74400892D48 /* Credentials.swift */; };
 		D188FB782C84A97D00892D48 /* PaymentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB772C84A97D00892D48 /* PaymentSystem.swift */; };
 		D188FB7B2C84C14400892D48 /* LoggerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB7A2C84C14400892D48 /* LoggerExtensions.swift */; };
+		D1BA90A02DA94ECA00AF6D97 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA909F2DA94ECA00AF6D97 /* AlertItem.swift */; };
+		D1BA90A42DA9603000AF6D97 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA90A32DA9603000AF6D97 /* CustomAlertView.swift */; };
+		D1BA90A62DAA8B5E00AF6D97 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA90A52DAA8B5E00AF6D97 /* ProductView.swift */; };
 		D1DEDC2B2C87BC8100CA7B81 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DEDC2A2C87BC8100CA7B81 /* Config.swift */; };
 		D1DEDC2D2C88910200CA7B81 /* NumberUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DEDC2C2C88910200CA7B81 /* NumberUtils.swift */; };
 /* End PBXBuildFile section */
@@ -40,9 +45,14 @@
 		D11AF5F12CA9EA73006C9CA0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D155F0FC2C728ACD009FC787 /* CardToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToken.swift; sourceTree = "<group>"; };
 		D155F0FE2C728B85009FC787 /* CardsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewModel.swift; sourceTree = "<group>"; };
+		D17E0D512DB6E0FE00F8D934 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		D17E0DB52DB6F55500F8D934 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		D188FB752C84A74400892D48 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D188FB772C84A97D00892D48 /* PaymentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSystem.swift; sourceTree = "<group>"; };
 		D188FB7A2C84C14400892D48 /* LoggerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerExtensions.swift; sourceTree = "<group>"; };
+		D1BA909F2DA94ECA00AF6D97 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		D1BA90A32DA9603000AF6D97 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		D1BA90A52DAA8B5E00AF6D97 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		D1DEDC2A2C87BC8100CA7B81 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D1DEDC2C2C88910200CA7B81 /* NumberUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,13 +88,14 @@
 		D11398112C72767C0079BB97 /* RozetkaPay.Example.SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				D17E0D532DB6E19700F8D934 /* Services */,
 				D188FB742C84A72400892D48 /* Config */,
 				D11398122C72767C0079BB97 /* RozetkaPay_Example_SwiftUIApp.swift */,
 				D155F0FB2C728ABE009FC787 /* Model */,
 				D1FE18A62C824ED300467196 /* View */,
 				D155F0FA2C728A98009FC787 /* ViewModel */,
 				D188FB792C84C12E00892D48 /* Extensions */,
-				D11398162C72767D0079BB97 /* Assets.xcassets */,
+				D17E0D502DB6E0B700F8D934 /* Resources */,
 				D11398182C72767D0079BB97 /* RozetkaPay_Example_SwiftUI.entitlements */,
 				D11398192C72767D0079BB97 /* Preview Content */,
 			);
@@ -111,11 +122,29 @@
 		D155F0FB2C728ABE009FC787 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D1BA909F2DA94ECA00AF6D97 /* AlertItem.swift */,
 				D155F0FC2C728ACD009FC787 /* CardToken.swift */,
 				D10C618C2C80AA9100AFC8BE /* Product.swift */,
 				D188FB772C84A97D00892D48 /* PaymentSystem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D17E0D502DB6E0B700F8D934 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D11398162C72767D0079BB97 /* Assets.xcassets */,
+				D17E0D512DB6E0FE00F8D934 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D17E0D532DB6E19700F8D934 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D17E0DB52DB6F55500F8D934 /* Localization.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D188FB742C84A72400892D48 /* Config */ = {
@@ -139,10 +168,12 @@
 		D1FE18A62C824ED300467196 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1BA90A52DAA8B5E00AF6D97 /* ProductView.swift */,
 				D11398142C72767C0079BB97 /* ContentView.swift */,
 				D10C61882C80AA4D00AFC8BE /* CartView.swift */,
 				D10C61862C80980800AFC8BE /* CardsListView.swift */,
 				D11AF5F12CA9EA73006C9CA0 /* CardView.swift */,
+				D1BA90A32DA9603000AF6D97 /* CustomAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +244,7 @@
 			files = (
 				D113981B2C72767D0079BB97 /* Preview Assets.xcassets in Resources */,
 				D11398172C72767D0079BB97 /* Assets.xcassets in Resources */,
+				D17E0D522DB6E0FE00F8D934 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +259,7 @@
 				D10C61892C80AA4D00AFC8BE /* CartView.swift in Sources */,
 				D188FB7B2C84C14400892D48 /* LoggerExtensions.swift in Sources */,
 				D155F0FF2C728B85009FC787 /* CardsListViewModel.swift in Sources */,
+				D1BA90A62DAA8B5E00AF6D97 /* ProductView.swift in Sources */,
 				D10C618D2C80AA9100AFC8BE /* Product.swift in Sources */,
 				D188FB782C84A97D00892D48 /* PaymentSystem.swift in Sources */,
 				D1DEDC2B2C87BC8100CA7B81 /* Config.swift in Sources */,
@@ -236,6 +269,9 @@
 				D11398132C72767C0079BB97 /* RozetkaPay_Example_SwiftUIApp.swift in Sources */,
 				D155F0FD2C728ACD009FC787 /* CardToken.swift in Sources */,
 				D1DEDC2D2C88910200CA7B81 /* NumberUtils.swift in Sources */,
+				D17E0DB62DB6F55500F8D934 /* Localization.swift in Sources */,
+				D1BA90A02DA94ECA00AF6D97 /* AlertItem.swift in Sources */,
+				D1BA90A42DA9603000AF6D97 /* CustomAlertView.swift in Sources */,
 				D10C61872C80980800AFC8BE /* CardsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +336,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -354,6 +391,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
@@ -367,7 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RozetkaPay.Example.SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = JVAX7U4FD5;
+				DEVELOPMENT_TEAM = 4JJF7F8G8L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -387,7 +425,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rozetkapay.RozetkaPay-Example-SwiftUI-Bars";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rozetkapay.RozetkaPay.Example-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -409,7 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RozetkaPay.Example.SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = JVAX7U4FD5;
+				DEVELOPMENT_TEAM = 4JJF7F8G8L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -429,7 +467,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rozetkapay.RozetkaPay-Example-SwiftUI-Bars";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rozetkapay.RozetkaPay.Example-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
