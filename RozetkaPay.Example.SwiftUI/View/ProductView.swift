@@ -32,7 +32,11 @@ struct ProductView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.gray.opacity(0.4), lineWidth: 1)
+                .fill(Color(UIColor.secondarySystemGroupedBackground)) // ← заливка
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray.opacity(0.4), lineWidth: 1) // ← обводка
+                )
         )
     }
 }

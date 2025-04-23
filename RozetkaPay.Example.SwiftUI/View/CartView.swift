@@ -94,12 +94,7 @@ private extension CartView {
     var listView: some View {
         List(viewModel.items) { item in
             HStack {
-                ProductView(
-                    name: item.name,
-                    price: item.price,
-                    quantity: item.quantity,
-                    imageName: item.imageName
-                )
+                makeProductView(item)
             }
             .listRowInsets(
                 EdgeInsets(
@@ -169,6 +164,20 @@ private extension CartView {
                 viewModel.handleResult(result)
                 isSheetPresented.toggle()
             }
+        )
+    }
+    
+}
+
+//MARK: Private Methods
+private extension CartView {
+    
+    func makeProductView(_ item: Product) -> some View {
+        ProductView(
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            imageName: item.imageName
         )
     }
     

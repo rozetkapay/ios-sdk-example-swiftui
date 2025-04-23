@@ -36,6 +36,17 @@
         }
       }
     },
+    "cards_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your cards:"
+          }
+        }
+      }
+    },
     "cart_checkout_button_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -86,7 +97,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your cards:"
+            "value" : "Your cart:"
           }
         }
       }

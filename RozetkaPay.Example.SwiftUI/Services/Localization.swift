@@ -25,6 +25,7 @@ enum Localization: String {
     case cart_shipment_cost_free
 
     //MARK: - Cards
+    case cards_title
     case cards_navigation_bar_title
     case cards_add_new_card_button_title
     

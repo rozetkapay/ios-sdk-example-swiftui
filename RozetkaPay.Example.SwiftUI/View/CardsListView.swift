@@ -52,7 +52,7 @@ private extension CardsListView {
     
     ///
     var titleView: some View {
-        Text(Localization.cart_title.description)
+        Text(Localization.cards_title.description)
             .font(.headline)
             .padding([.leading, .top])
     }
@@ -116,7 +116,7 @@ private extension CardsListView {
                 )
             ),
             onResultCallback: { result in
-                handleResult(result)
+                viewModel.handleResult(result)
                 isSheetPresented.toggle()
             }
         )
@@ -134,59 +134,6 @@ private extension CardsListView {
         )
     }
     
-    func handleResult(_ result: TokenizationResult) {
-        switch result {
-        case .success(let value):
-            alertItem = AlertItem(
-                type: .success,
-                title: "Successful",
-                message: "Tokenization card was successful."
-            )
-            addNewCard(tokenizedCard: value)
-        case .failure(let error):
-            switch error {
-            case let .failed(message, _):
-                if let message = message, !message.isEmpty {
-                    alertItem = AlertItem(
-                        type: .error,
-                        title: "Failed",
-                        message: "Tokenization of card failed with message: \(message)."
-                    )
-                    Logger.tokenizedCard.warning(
-                        "⚠️ WARNING: An error with message \"\(message)\". Please try again. ⚠️"
-                    )
-                } else {
-                    alertItem = AlertItem(
-                        type: .error,
-                        title: "Failed",
-                        message: "An unknown error occurred with card tokenization. Please try again."
-                    )
-                    Logger.tokenizedCard.warning(
-                        "⚠️ WARNING: An error occurred during tokenization process. Please try again. ⚠️"
-                    )
-                }
-            case .cancelled:
-                alertItem = AlertItem(
-                    type: .info,
-                    title: "Cancelled",
-                    message: "Tokenization was cancelled manually by the user."
-                )
-                
-                Logger.tokenizedCard.info("Tokenization was cancelled manually by user")
-            }
-        }
-    }
-    
-    private func addNewCard(tokenizedCard: TokenizedCard) {
-        viewModel.add(
-            item: CardToken(
-                paymentSystem: tokenizedCard.cardInfo?.paymentSystem,
-                name: tokenizedCard.name,
-                maskedNumber: tokenizedCard.cardInfo?.maskedNumber ,
-                cardToken: tokenizedCard.token
-            )
-        )
-    }
 }
 
 //MARK: Preview

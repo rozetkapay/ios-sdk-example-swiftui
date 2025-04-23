@@ -10,6 +10,8 @@ import RozetkaPaySDK
 import OSLog
 
 final class CartViewModel: ObservableObject {
+    
+ 
     var clientParameters = ClientAuthParameters(
         token: Credentials.DEV_AUTH_TOKEN,
         widgetKey: Credentials.WIDGET_KEY
@@ -40,7 +42,7 @@ final class CartViewModel: ObservableObject {
         Localization.cart_shipment_cost_free.description
     }
     
-    //MARK: - Init
+    //MARK: - Inits
     init(
         orderId: String,
         items: [Product]
@@ -49,10 +51,7 @@ final class CartViewModel: ObservableObject {
         self.items = items
     }
     
-    func add(item: Product) {
-        items.append(item)
-    }
-    
+    //MARK: - MocData
     static var mocData: [Product] = {
         return [
             Product(
@@ -82,6 +81,18 @@ final class CartViewModel: ObservableObject {
         ]
     }()
     
+}
+
+//MARK: - Private methods
+private extension CartViewModel {
+    
+    private func add(item: Product) {
+        items.append(item)
+    }
+}
+
+//MARK: - Methods
+extension CartViewModel {
     func handleResult(_ result: PaymentResult) {
         switch result {
         case let .pending(orderId, paymentId, message, error):
@@ -123,7 +134,7 @@ final class CartViewModel: ObservableObject {
                 )
                 var errorText =  "⚠️ WARNING: An error with message \"\(message)\", paymentId: \"\(error.paymentId ?? "")\"."
                 
-  
+                
                 errorText += " errorDescription: \(error.localizedDescription)."
                 errorText += "Please try again. ⚠️"
                 Logger.payment.warning("\(errorText)")
