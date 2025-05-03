@@ -1,0 +1,15 @@
+{
+  "originHash" : "c245a2d1d6fe05069cc99b80e4c5e0ff4c017cd70e3be15559ecb1898b7a5568",
+  "pins" : [
+    {
+      "identity" : "ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rozetkapay/ios-sdk",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a293c1f0508de5e6784716ba71b33ff118e3abd9"
+      }
+    }
+  ],
+  "version" : 3
+}

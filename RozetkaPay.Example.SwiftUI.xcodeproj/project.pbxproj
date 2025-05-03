@@ -21,6 +21,7 @@
 		D155F0FF2C728B85009FC787 /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155F0FE2C728B85009FC787 /* CardsListViewModel.swift */; };
 		D17E0D522DB6E0FE00F8D934 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D17E0D512DB6E0FE00F8D934 /* Localizable.xcstrings */; };
 		D17E0DB62DB6F55500F8D934 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E0DB52DB6F55500F8D934 /* Localization.swift */; };
+		D17E11672DC6531400F8D934 /* RozetkaPaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = D17E11662DC6531400F8D934 /* RozetkaPaySDK */; };
 		D188FB762C84A74400892D48 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB752C84A74400892D48 /* Credentials.swift */; };
 		D188FB782C84A97D00892D48 /* PaymentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB772C84A97D00892D48 /* PaymentSystem.swift */; };
 		D188FB7B2C84C14400892D48 /* LoggerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB7A2C84C14400892D48 /* LoggerExtensions.swift */; };
@@ -63,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11398232C7276A30079BB97 /* RozetkaPaySDK in Frameworks */,
+				D17E11672DC6531400F8D934 /* RozetkaPaySDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +198,7 @@
 			name = RozetkaPay.Example.SwiftUI;
 			packageProductDependencies = (
 				D11398222C7276A30079BB97 /* RozetkaPaySDK */,
+				D17E11662DC6531400F8D934 /* RozetkaPaySDK */,
 			);
 			productName = RozetkaPay.Example.SwiftUI;
 			productReference = D113980F2C72767C0079BB97 /* RozetkaPay.Example.SwiftUI.app */;
@@ -226,6 +229,7 @@
 			);
 			mainGroup = D11398062C72767C0079BB97;
 			packageReferences = (
+				D17E11652DC6531400F8D934 /* XCRemoteSwiftPackageReference "ios-sdk" */,
 			);
 			productRefGroup = D11398102C72767C0079BB97 /* Products */;
 			projectDirPath = "";
@@ -501,9 +505,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		D17E11652DC6531400F8D934 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rozetkapay/ios-sdk";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		D11398222C7276A30079BB97 /* RozetkaPaySDK */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = RozetkaPaySDK;
+		};
+		D17E11662DC6531400F8D934 /* RozetkaPaySDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17E11652DC6531400F8D934 /* XCRemoteSwiftPackageReference "ios-sdk" */;
 			productName = RozetkaPaySDK;
 		};
 /* End XCSwiftPackageProductDependency section */
