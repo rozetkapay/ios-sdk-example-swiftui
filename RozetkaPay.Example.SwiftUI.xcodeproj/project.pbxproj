@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -226,7 +226,6 @@
 			);
 			mainGroup = D11398062C72767C0079BB97;
 			packageReferences = (
-				D11398212C7276A30079BB97 /* XCLocalSwiftPackageReference "../RozetkaPaySDK" */,
 			);
 			productRefGroup = D11398102C72767C0079BB97 /* Products */;
 			projectDirPath = "";
@@ -501,13 +500,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		D11398212C7276A30079BB97 /* XCLocalSwiftPackageReference "../RozetkaPaySDK" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../RozetkaPaySDK;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		D11398222C7276A30079BB97 /* RozetkaPaySDK */ = {
