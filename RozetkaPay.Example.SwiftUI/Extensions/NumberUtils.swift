@@ -35,4 +35,7 @@ extension Int64 {
         return (Double(self)/100.0).currencyFormat()
     }
     
+    func toString() -> String {
+        return self.description
+    }
 }

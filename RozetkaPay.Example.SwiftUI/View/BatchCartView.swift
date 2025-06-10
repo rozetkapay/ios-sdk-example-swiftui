@@ -1,30 +1,28 @@
 //
-//  CartView.swift
+//  BatchCartView.swift
 //  RozetkaPay.Example.SwiftUI
 //
-//  Created by Ruslan Kasian Dev on 29.08.2024.
+//  Created by Ruslan Kasian Dev on 29.05.2025.
 //
-
-
 import SwiftUI
 import RozetkaPaySDK
 
-struct CartView: View {
+struct BatchCartView: View {
     //MARK: - Properties
-    @StateObject private var viewModel: CartViewModel
+    @StateObject private var viewModel: BatchCartViewModel
     @State private var isSheetPresented = false
     @State private var isNeedToUseTokenizedCard = false
     @Environment(\.presentationMode) var presentationMode
     
     //MARK: - Init
     public init(
-        orderId: String? = nil,
-        items: [Product]? = nil
+        externalId: String? = nil,
+        orders: [Order]? = nil
     ) {
         _viewModel = StateObject(
-            wrappedValue: CartViewModel(
-                orderId: orderId ?? CartViewModel.generateOrderId(),
-                items: items ?? CartViewModel.mocData
+            wrappedValue: BatchCartViewModel(
+                externalId: externalId ?? BatchCartViewModel.generateExternalId(),
+                orders: orders ?? BatchCartViewModel.mocData
             )
         )
     }
@@ -41,7 +39,7 @@ struct CartView: View {
             checkBoxView
             checkoutButton
         }
-        .navigationBarTitle(Localization.cart_navigation_bar_title.description, displayMode: .inline)
+        .navigationBarTitle(Localization.batch_cart_navigation_bar_title.description, displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -56,11 +54,11 @@ struct CartView: View {
 }
 
 //MARK: UI
-private extension CartView {
+private extension BatchCartView {
     
     ///
     var titleView: some View {
-        Text(Localization.cart_title.description)
+        Text(Localization.batch_cart_title.description)
             .font(.headline)
             .padding([.leading, .top])
     }
@@ -80,7 +78,7 @@ private extension CartView {
         Button(action: {
             isSheetPresented.toggle()
         }) {
-            Text(Localization.cart_checkout_button_title.description)
+            Text(Localization.batch_cart_checkout_button_title.description)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.green)
@@ -94,9 +92,45 @@ private extension CartView {
     
     ///
     var listView: some View {
-        List(viewModel.items) { item in
-            HStack {
-                makeProductView(item)
+        List {
+            ForEach(viewModel.orders.indices, id: \.self) { index in
+                
+                let order = viewModel.orders[index]
+                
+                Section(
+                    header:
+                        HStack {
+                            Text("\(Localization.batch_cart_group_order_title.description) \(index + 1)")
+                                .font(.headline)
+                                .foregroundColor(.primary)
+
+                            Spacer()
+
+                            Text("\(Localization.batch_cart_group_order_total_title.description): \(order.totalAmount, format: .currency(code: order.products.first?.currency ?? Config.defaultCurrencyCode))")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color(UIColor.systemGroupedBackground))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.gray.opacity(0.4), lineWidth: 1)
+                                )
+                        )
+                ) {
+                    ForEach(order.products.indices, id: \.self) { productIndex in
+                        let product = order.products[productIndex]
+                        HStack {
+                            makeProductView(product)
+                        }
+                        .listRowSeparator(.hidden)
+                    }
+                    if index == viewModel.orders.count - 1 {
+                        Spacer().frame(height: 16)
+                    }
+                }
             }
             .listRowInsets(
                 EdgeInsets(
@@ -110,11 +144,11 @@ private extension CartView {
         }
         .listStyle(PlainListStyle())
     }
-    
+
     ///
     var totalView: some View {
         HStack {
-            Text(Localization.cart_total_title.description)
+            Text(Localization.batch_cart_total_title.description)
                 .font(.title3)
                 .fontWeight(.bold)
             Spacer()
@@ -130,7 +164,7 @@ private extension CartView {
     var shipmentView: some View {
         HStack {
             HStack {
-                Text(Localization.cart_shipment_title.description)
+                Text(Localization.batch_cart_shipment_title.description)
                     .font(.subheadline)
                 Spacer()
                 Text(viewModel.shipment)
@@ -152,7 +186,7 @@ private extension CartView {
                 )
                 .labelsHidden()
             
-            Text(Localization.cart_use_tokenized_card.description)
+            Text(Localization.batch_cart_use_tokenized_card.description)
                 .font(.subheadline)
         }
         .padding()
@@ -190,7 +224,7 @@ private extension CartView {
     ///
     var checkoutView: some View {
         RozetkaPaySDK.PayView(
-            paymentParameters: PaymentParameters(
+            batchPaymentParameters: BatchPaymentParameters(
                 client: viewModel.clientParameters,
                 themeConfigurator: RozetkaPayThemeConfigurator(),
                 paymentType:
@@ -200,16 +234,16 @@ private extension CartView {
                             token: viewModel.testCardToken
                         )
                     ) :
-                    .regular(
-                        RegularPayment(
-                            viewParameters: PaymentViewParameters(
-                                cardNameField: .none,
-                                emailField: .none,
-                                cardholderNameField: .none
-                            ),
-                            isAllowTokenization: true,
-                            applePayConfig: viewModel.testApplePayConfig
-                        )
+                        .regular(
+                            RegularPayment(
+                                viewParameters: PaymentViewParameters(
+                                    cardNameField: .none,
+                                    emailField: .none,
+                                    cardholderNameField: .none
+                                ),
+                                isAllowTokenization: true,
+                                applePayConfig: viewModel.testApplePayConfig
+                            )
                 ),
                 amountParameters:  AmountParameters(
                     amount: viewModel.totalNetAmountInCoins,
@@ -217,20 +251,22 @@ private extension CartView {
                     total: viewModel.totalAmountInCoins,
                     currencyCode: Config.defaultCurrencyCode
                 ),
-                externalId: viewModel.orderId,
-                callbackUrl: Config.exampleCallbackUrl
-            )
-            ,
+                externalId: viewModel.externalId,
+                callbackUrl: Config.exampleCallbackUrl,
+                resultUrl: Config.exampleResultUrl,
+                orders: viewModel.orders.mapToBatchOrder()
+            ),
             onResultCallback: { result in
                 viewModel.handleResult(result)
                 isSheetPresented.toggle()
             }
         )
     }
+    
 }
 
 //MARK: Private Methods
-private extension CartView {
+private extension BatchCartView {
     func makeProductView(_ item: Product) -> some View {
         return ProductView(
             name: item.name,
@@ -244,8 +280,8 @@ private extension CartView {
 
 //MARK: Preview
 #Preview {
-    CartView(
-        orderId: "test",
-        items: CartViewModel.mocData
+    BatchCartView(
+        externalId: "test",
+        orders: BatchCartViewModel.mocData
     )
 }
