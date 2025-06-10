@@ -1,13 +1,13 @@
 {
-  "originHash" : "c245a2d1d6fe05069cc99b80e4c5e0ff4c017cd70e3be15559ecb1898b7a5568",
+  "originHash" : "9aa9d77656ac680f3d4aeb0b293b784ee823d91423f8c5e9a5af7218ff05526e",
   "pins" : [
     {
       "identity" : "ios-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/rozetkapay/ios-sdk",
+      "location" : "https://github.com/rozetkapay/ios-sdk.git",
       "state" : {
         "branch" : "main",
-        "revision" : "a293c1f0508de5e6784716ba71b33ff118e3abd9"
+        "revision" : "92f211378dfb433856ff6bc1f724b4947878f9df"
       }
     }
   ],

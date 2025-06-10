@@ -17,14 +17,20 @@
 		D113981B2C72767D0079BB97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D113981A2C72767D0079BB97 /* Preview Assets.xcassets */; };
 		D11398232C7276A30079BB97 /* RozetkaPaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = D11398222C7276A30079BB97 /* RozetkaPaySDK */; };
 		D11AF5F22CA9EA73006C9CA0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF5F12CA9EA73006C9CA0 /* CardView.swift */; };
+		D127753F2DF6E71E002E4F64 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127753E2DF6E71E002E4F64 /* AppConfiguration.swift */; };
+		D14778AB2DF85BD000F6282A /* RozetkaPaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = D14778AA2DF85BD000F6282A /* RozetkaPaySDK */; };
 		D155F0FD2C728ACD009FC787 /* CardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155F0FC2C728ACD009FC787 /* CardToken.swift */; };
 		D155F0FF2C728B85009FC787 /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155F0FE2C728B85009FC787 /* CardsListViewModel.swift */; };
 		D17E0D522DB6E0FE00F8D934 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D17E0D512DB6E0FE00F8D934 /* Localizable.xcstrings */; };
 		D17E0DB62DB6F55500F8D934 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E0DB52DB6F55500F8D934 /* Localization.swift */; };
-		D17E11672DC6531400F8D934 /* RozetkaPaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = D17E11662DC6531400F8D934 /* RozetkaPaySDK */; };
 		D188FB762C84A74400892D48 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB752C84A74400892D48 /* Credentials.swift */; };
 		D188FB782C84A97D00892D48 /* PaymentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB772C84A97D00892D48 /* PaymentSystem.swift */; };
 		D188FB7B2C84C14400892D48 /* LoggerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188FB7A2C84C14400892D48 /* LoggerExtensions.swift */; };
+		D199667D2DE6EBED00673ACC /* RozetkaPaySDK in Frameworks */ = {isa = PBXBuildFile; productRef = D199667C2DE6EBED00673ACC /* RozetkaPaySDK */; };
+		D199667F2DE8AFF700673ACC /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = D199667E2DE8AFF700673ACC /* Images.swift */; };
+		D19966812DE8C3C800673ACC /* BatchCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19966802DE8C3C800673ACC /* BatchCartView.swift */; };
+		D19966832DE8E20400673ACC /* BatchCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19966822DE8E20400673ACC /* BatchCartViewModel.swift */; };
+		D19966852DE9223F00673ACC /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19966842DE9223F00673ACC /* Order.swift */; };
 		D1BA90A02DA94ECA00AF6D97 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA909F2DA94ECA00AF6D97 /* AlertItem.swift */; };
 		D1BA90A42DA9603000AF6D97 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA90A32DA9603000AF6D97 /* CustomAlertView.swift */; };
 		D1BA90A62DAA8B5E00AF6D97 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA90A52DAA8B5E00AF6D97 /* ProductView.swift */; };
@@ -44,6 +50,7 @@
 		D11398182C72767D0079BB97 /* RozetkaPay_Example_SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RozetkaPay_Example_SwiftUI.entitlements; sourceTree = "<group>"; };
 		D113981A2C72767D0079BB97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D11AF5F12CA9EA73006C9CA0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D127753E2DF6E71E002E4F64 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		D155F0FC2C728ACD009FC787 /* CardToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardToken.swift; sourceTree = "<group>"; };
 		D155F0FE2C728B85009FC787 /* CardsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewModel.swift; sourceTree = "<group>"; };
 		D17E0D512DB6E0FE00F8D934 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -51,6 +58,10 @@
 		D188FB752C84A74400892D48 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D188FB772C84A97D00892D48 /* PaymentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSystem.swift; sourceTree = "<group>"; };
 		D188FB7A2C84C14400892D48 /* LoggerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerExtensions.swift; sourceTree = "<group>"; };
+		D199667E2DE8AFF700673ACC /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		D19966802DE8C3C800673ACC /* BatchCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCartView.swift; sourceTree = "<group>"; };
+		D19966822DE8E20400673ACC /* BatchCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchCartViewModel.swift; sourceTree = "<group>"; };
+		D19966842DE9223F00673ACC /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		D1BA909F2DA94ECA00AF6D97 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		D1BA90A32DA9603000AF6D97 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		D1BA90A52DAA8B5E00AF6D97 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -64,7 +75,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11398232C7276A30079BB97 /* RozetkaPaySDK in Frameworks */,
-				D17E11672DC6531400F8D934 /* RozetkaPaySDK in Frameworks */,
+				D14778AB2DF85BD000F6282A /* RozetkaPaySDK in Frameworks */,
+				D199667D2DE6EBED00673ACC /* RozetkaPaySDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,16 +102,16 @@
 		D11398112C72767C0079BB97 /* RozetkaPay.Example.SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				D17E0D532DB6E19700F8D934 /* Services */,
-				D188FB742C84A72400892D48 /* Config */,
+				D11398182C72767D0079BB97 /* RozetkaPay_Example_SwiftUI.entitlements */,
 				D11398122C72767C0079BB97 /* RozetkaPay_Example_SwiftUIApp.swift */,
+				D188FB742C84A72400892D48 /* Config */,
+				D188FB792C84C12E00892D48 /* Extensions */,
 				D155F0FB2C728ABE009FC787 /* Model */,
+				D11398192C72767D0079BB97 /* Preview Content */,
+				D17E0D502DB6E0B700F8D934 /* Resources */,
+				D17E0D532DB6E19700F8D934 /* Services */,
 				D1FE18A62C824ED300467196 /* View */,
 				D155F0FA2C728A98009FC787 /* ViewModel */,
-				D188FB792C84C12E00892D48 /* Extensions */,
-				D17E0D502DB6E0B700F8D934 /* Resources */,
-				D11398182C72767D0079BB97 /* RozetkaPay_Example_SwiftUI.entitlements */,
-				D11398192C72767D0079BB97 /* Preview Content */,
 			);
 			path = RozetkaPay.Example.SwiftUI;
 			sourceTree = "<group>";
@@ -115,6 +127,7 @@
 		D155F0FA2C728A98009FC787 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D19966822DE8E20400673ACC /* BatchCartViewModel.swift */,
 				D155F0FE2C728B85009FC787 /* CardsListViewModel.swift */,
 				D10C618A2C80AA7B00AFC8BE /* CartViewModel.swift */,
 			);
@@ -126,8 +139,9 @@
 			children = (
 				D1BA909F2DA94ECA00AF6D97 /* AlertItem.swift */,
 				D155F0FC2C728ACD009FC787 /* CardToken.swift */,
-				D10C618C2C80AA9100AFC8BE /* Product.swift */,
 				D188FB772C84A97D00892D48 /* PaymentSystem.swift */,
+				D19966842DE9223F00673ACC /* Order.swift */,
+				D10C618C2C80AA9100AFC8BE /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				D17E0DB52DB6F55500F8D934 /* Localization.swift */,
+				D199667E2DE8AFF700673ACC /* Images.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -152,6 +167,7 @@
 		D188FB742C84A72400892D48 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				D127753E2DF6E71E002E4F64 /* AppConfiguration.swift */,
 				D188FB752C84A74400892D48 /* Credentials.swift */,
 				D1DEDC2A2C87BC8100CA7B81 /* Config.swift */,
 			);
@@ -170,6 +186,7 @@
 		D1FE18A62C824ED300467196 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D19966802DE8C3C800673ACC /* BatchCartView.swift */,
 				D1BA90A52DAA8B5E00AF6D97 /* ProductView.swift */,
 				D11398142C72767C0079BB97 /* ContentView.swift */,
 				D10C61882C80AA4D00AFC8BE /* CartView.swift */,
@@ -198,7 +215,8 @@
 			name = RozetkaPay.Example.SwiftUI;
 			packageProductDependencies = (
 				D11398222C7276A30079BB97 /* RozetkaPaySDK */,
-				D17E11662DC6531400F8D934 /* RozetkaPaySDK */,
+				D199667C2DE6EBED00673ACC /* RozetkaPaySDK */,
+				D14778AA2DF85BD000F6282A /* RozetkaPaySDK */,
 			);
 			productName = RozetkaPay.Example.SwiftUI;
 			productReference = D113980F2C72767C0079BB97 /* RozetkaPay.Example.SwiftUI.app */;
@@ -229,7 +247,7 @@
 			);
 			mainGroup = D11398062C72767C0079BB97;
 			packageReferences = (
-				D17E11652DC6531400F8D934 /* XCRemoteSwiftPackageReference "ios-sdk" */,
+				D14778A92DF85BD000F6282A /* XCRemoteSwiftPackageReference "ios-sdk" */,
 			);
 			productRefGroup = D11398102C72767C0079BB97 /* Products */;
 			projectDirPath = "";
@@ -262,18 +280,23 @@
 				D10C61892C80AA4D00AFC8BE /* CartView.swift in Sources */,
 				D188FB7B2C84C14400892D48 /* LoggerExtensions.swift in Sources */,
 				D155F0FF2C728B85009FC787 /* CardsListViewModel.swift in Sources */,
+				D19966852DE9223F00673ACC /* Order.swift in Sources */,
 				D1BA90A62DAA8B5E00AF6D97 /* ProductView.swift in Sources */,
 				D10C618D2C80AA9100AFC8BE /* Product.swift in Sources */,
 				D188FB782C84A97D00892D48 /* PaymentSystem.swift in Sources */,
 				D1DEDC2B2C87BC8100CA7B81 /* Config.swift in Sources */,
 				D188FB762C84A74400892D48 /* Credentials.swift in Sources */,
+				D19966812DE8C3C800673ACC /* BatchCartView.swift in Sources */,
 				D10C618B2C80AA7B00AFC8BE /* CartViewModel.swift in Sources */,
 				D11398152C72767C0079BB97 /* ContentView.swift in Sources */,
+				D199667F2DE8AFF700673ACC /* Images.swift in Sources */,
 				D11398132C72767C0079BB97 /* RozetkaPay_Example_SwiftUIApp.swift in Sources */,
+				D127753F2DF6E71E002E4F64 /* AppConfiguration.swift in Sources */,
 				D155F0FD2C728ACD009FC787 /* CardToken.swift in Sources */,
 				D1DEDC2D2C88910200CA7B81 /* NumberUtils.swift in Sources */,
 				D17E0DB62DB6F55500F8D934 /* Localization.swift in Sources */,
 				D1BA90A02DA94ECA00AF6D97 /* AlertItem.swift in Sources */,
+				D19966832DE8E20400673ACC /* BatchCartViewModel.swift in Sources */,
 				D1BA90A42DA9603000AF6D97 /* CustomAlertView.swift in Sources */,
 				D10C61872C80980800AFC8BE /* CardsListView.swift in Sources */,
 			);
@@ -506,9 +529,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D17E11652DC6531400F8D934 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+		D14778A92DF85BD000F6282A /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rozetkapay/ios-sdk";
+			repositoryURL = "https://github.com/rozetkapay/ios-sdk.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -521,9 +544,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = RozetkaPaySDK;
 		};
-		D17E11662DC6531400F8D934 /* RozetkaPaySDK */ = {
+		D14778AA2DF85BD000F6282A /* RozetkaPaySDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D17E11652DC6531400F8D934 /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			package = D14778A92DF85BD000F6282A /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			productName = RozetkaPaySDK;
+		};
+		D199667C2DE6EBED00673ACC /* RozetkaPaySDK */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = RozetkaPaySDK;
 		};
 /* End XCSwiftPackageProductDependency section */
