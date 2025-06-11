@@ -75,12 +75,12 @@ final class BatchCartViewModel: ObservableObject {
     }
     
     //MARK: - MocData
-    static var mocData: [Order] = {
+    static func generateMocData() -> [Order] {
         return [
             Order(
                 apiKey: batchApiKey,
                 description: "order description",
-                externalId: BatchCartViewModel.generateOrderId(),
+                externalId: generateOrderId(),
                 unifiedExternalId: "test_unifiedExternalId",
                 products: [
                     Product(
@@ -128,7 +128,7 @@ final class BatchCartViewModel: ObservableObject {
             Order(
                 apiKey: batchApiKey,
                 description: "order description",
-                externalId: BatchCartViewModel.generateOrderId(),
+                externalId: generateOrderId(),
                 products: [
                     Product(
                         category: "category1",
@@ -174,7 +174,7 @@ final class BatchCartViewModel: ObservableObject {
             )
             
         ]
-    }()
+    }
 }
 
 //MARK: - Private methods

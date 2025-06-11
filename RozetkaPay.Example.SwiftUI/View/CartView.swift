@@ -24,7 +24,7 @@ struct CartView: View {
         _viewModel = StateObject(
             wrappedValue: CartViewModel(
                 orderId: orderId ?? CartViewModel.generateOrderId(),
-                items: items ?? CartViewModel.mocData
+                items: items ?? CartViewModel.generateMocData()
             )
         )
     }
@@ -245,7 +245,7 @@ private extension CartView {
 //MARK: Preview
 #Preview {
     CartView(
-        orderId: "test",
-        items: CartViewModel.mocData
+        orderId: CartViewModel.generateOrderId(),
+        items: CartViewModel.generateMocData()
     )
 }

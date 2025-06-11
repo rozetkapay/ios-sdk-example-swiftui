@@ -29,7 +29,7 @@ class CardsViewModel: ObservableObject {
         self.items = items
     }
     
-    static var mocData: [CardToken] = {
+    static func generateMocData() -> [CardToken] {
         return [
             CardToken(
                 paymentSystem: .visa,
@@ -56,7 +56,7 @@ class CardsViewModel: ObservableObject {
                 cardToken: "token1"
             ),
         ]
-    }()
+    }
 }
 //MARK: - Private methods
 private extension CardsViewModel {
