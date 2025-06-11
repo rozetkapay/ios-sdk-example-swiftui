@@ -22,7 +22,7 @@ struct CardsListView: View {
     ) {
         _viewModel = StateObject(
             wrappedValue: CardsViewModel(
-                items: items ?? CardsViewModel.mocData
+                items: items ?? CardsViewModel.generateMocData()
             )
         )
     }
@@ -141,5 +141,5 @@ private extension CardsListView {
 
 //MARK: Preview
 #Preview {
-    CardsListView(items: CardsViewModel.mocData)
+    CardsListView(items: CardsViewModel.generateMocData())
 }

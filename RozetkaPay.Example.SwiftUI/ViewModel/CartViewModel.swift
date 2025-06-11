@@ -70,7 +70,7 @@ final class CartViewModel: ObservableObject {
     }
     
     //MARK: - MocData
-    static var mocData: [Product] = {
+    static func generateMocData() -> [Product] {
         return [
             Product(
                 category: "category1",
@@ -113,7 +113,7 @@ final class CartViewModel: ObservableObject {
                 url: "url"
             )
         ]
-    }()
+    }
     
 }
 

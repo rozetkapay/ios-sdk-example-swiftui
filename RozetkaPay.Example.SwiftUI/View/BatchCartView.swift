@@ -22,7 +22,7 @@ struct BatchCartView: View {
         _viewModel = StateObject(
             wrappedValue: BatchCartViewModel(
                 externalId: externalId ?? BatchCartViewModel.generateExternalId(),
-                orders: orders ?? BatchCartViewModel.mocData
+                orders: orders ?? BatchCartViewModel.generateMocData()
             )
         )
     }
@@ -281,7 +281,7 @@ private extension BatchCartView {
 //MARK: Preview
 #Preview {
     BatchCartView(
-        externalId: "test",
-        orders: BatchCartViewModel.mocData
+        externalId: BatchCartViewModel.generateExternalId(),
+        orders: BatchCartViewModel.generateMocData()
     )
 }
