@@ -253,7 +253,6 @@ private extension BatchCartView {
                 ),
                 externalId: viewModel.externalId,
                 callbackUrl: Config.exampleCallbackUrl,
-                resultUrl: Config.exampleResultUrl,
                 orders: viewModel.orders.mapToBatchOrder()
             ),
             onResultCallback: { result in
