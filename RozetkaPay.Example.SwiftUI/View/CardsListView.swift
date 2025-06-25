@@ -17,10 +17,12 @@ struct CardsListView: View {
     @Environment(\.presentationMode) var presentationMode
     
     //MARK: - Init
-    public init(items: [CardToken]) {
+    public init(
+        items: [CardToken]? = nil
+    ) {
         _viewModel = StateObject(
             wrappedValue: CardsViewModel(
-                items: items
+                items: items ?? CardsViewModel.generateMocData()
             )
         )
     }
@@ -62,7 +64,8 @@ private extension CardsListView {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
         }) {
-            Image(systemName: "chevron.left")
+            
+            Images.arrowLeft.image()
                 .foregroundColor(.primary)
         }
     }
@@ -92,7 +95,7 @@ private extension CardsListView {
             isSheetPresented.toggle()
         }) {
             HStack {
-                Image(systemName: "plus")
+                Images.plus.image()
                 Text(Localization.cards_add_new_card_button_title.description)
             }
             .padding()
@@ -138,5 +141,5 @@ private extension CardsListView {
 
 //MARK: Preview
 #Preview {
-    CardsListView(items: CardsViewModel.mocData)
+    CardsListView(items: CardsViewModel.generateMocData())
 }

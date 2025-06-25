@@ -31,10 +31,10 @@ struct CardView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color(UIColor.secondarySystemGroupedBackground)) // ← заливка
+                .fill(Color(UIColor.secondarySystemGroupedBackground))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray.opacity(0.4), lineWidth: 1) // ← обводка
+                        .stroke(Color.gray.opacity(0.4), lineWidth: 1)
                 )
         )
     }

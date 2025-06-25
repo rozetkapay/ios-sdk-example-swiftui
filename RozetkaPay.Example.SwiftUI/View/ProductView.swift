@@ -9,11 +9,13 @@ import SwiftUI
 struct ProductView: View {
     var name: String
     var price: Double
-    var quantity: Int
+    var quantity: Int64
+    var amount: Double
     var imageName: String
     
     var body: some View {
         HStack {
+            
             Image(imageName)
                 .resizable()
                 .frame(width: 50, height: 50)
@@ -26,16 +28,16 @@ struct ProductView: View {
                     .foregroundColor(.gray)
             }
             Spacer()
-            Text("\(price * Double(quantity), specifier: "%.2f")")
+            Text("\(amount, specifier: "%.2f")")
                 .font(.body)
         }
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color(UIColor.secondarySystemGroupedBackground)) // ← заливка
+                .fill(Color(UIColor.secondarySystemGroupedBackground))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray.opacity(0.4), lineWidth: 1) // ← обводка
+                        .stroke(Color.gray.opacity(0.4), lineWidth: 1)
                 )
         )
     }

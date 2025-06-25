@@ -12,9 +12,10 @@ import RozetkaPaySDK
 struct RozetkaPay_Example_SwiftUIApp: App {
     
     init() {
+        AppConfiguration.initialize(with: .production)
         RozetkaPaySdk.initSdk(
             appContext: UIApplication.shared,
-            mode: .development,
+            mode: .production,
             enableLogging: true,
             validationRules: RozetkaPaySdkValidationRules()
         )

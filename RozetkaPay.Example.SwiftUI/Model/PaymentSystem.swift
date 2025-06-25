@@ -46,13 +46,13 @@ enum PaymentSystem: Equatable {
     var logoName: String {
         switch self {
         case .visa:
-            return "paymentSystem.visa"
+            return Images.paymentSystemVisa.name
         case .masterCard:
-            return "paymentSystem.mastercard"
+            return Images.paymentSystemMastercard.name
         case .prostir:
-            return "paymentSystem.prostir"
+            return Images.paymentSystemProstir.name
         case .other:
-            return "paymentSystem.default"
+            return Images.paymentSystemDefault.name
         }
     }
     

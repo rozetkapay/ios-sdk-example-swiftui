@@ -11,13 +11,14 @@ import OSLog
 
 class CardsViewModel: ObservableObject {
     
+    //MARK: - Credentials
+    var clientWidgetParameters = ClientWidgetParameters(
+        widgetKey: AppConfiguration.shared.credentials.WIDGET_KEY
+    )
+    
     //MARK: - Properties
     @Published var items: [CardToken]
     @Published var alertItem: AlertItem?
-    
-    var clientWidgetParameters = ClientWidgetParameters(
-        widgetKey: Credentials.WIDGET_KEY
-    )
     
     //MARK: - Inits
     init() {
@@ -28,7 +29,7 @@ class CardsViewModel: ObservableObject {
         self.items = items
     }
     
-    static var mocData: [CardToken] = {
+    static func generateMocData() -> [CardToken] {
         return [
             CardToken(
                 paymentSystem: .visa,
@@ -55,7 +56,7 @@ class CardsViewModel: ObservableObject {
                 cardToken: "token1"
             ),
         ]
-    }()
+    }
 }
 //MARK: - Private methods
 private extension CardsViewModel {
@@ -70,8 +71,7 @@ private extension CardsViewModel {
             name: tokenizedCard.name,
             maskedNumber: tokenizedCard.cardInfo?.maskedNumber ,
             cardToken: tokenizedCard.token
-        )
-        )
+        ))
     }
 }
 
