@@ -14,6 +14,7 @@ struct CardsListView: View {
     @StateObject var viewModel: CardsViewModel
     @State private var isSheetPresented = false
     @State private var alertItem: AlertItem?
+    @State private var isNeedToSaveTokenizedCard = false
     @Environment(\.presentationMode) var presentationMode
     
     //MARK: - Init
@@ -32,6 +33,8 @@ struct CardsListView: View {
         VStack(alignment: .leading) {
             titleView
             listView
+            Spacer()
+            tokenizationContentView
             Spacer()
             addNewCardButton
         }
@@ -107,6 +110,35 @@ private extension CardsListView {
         .frame(maxWidth: .infinity, alignment: .center)
     }
     
+    var tokenizationContentView: some View {
+        RozetkaPaySDK.TokenizationContentView(
+                parameters: TokenizationContentParameters(
+                    client: viewModel.clientWidgetParameters,
+                    viewParameters: TokenizationContentViewParameters(
+                        cardNameField: .none,
+                        emailField: .none,
+                        cardholderNameField: .none,
+                        isVisibleCardInfoTitle:  true,
+                        isVisibleCardInfoLegalView: true,
+                        stringResources: StringResources(
+                            cardFormTitle: "TEST",
+                            buttonTitle:"buttonTitle TEST"
+                        )
+                    )
+                ),
+                onResultCallback: { result in
+                    viewModel.handleResult(result)
+                },
+                stateUICallback: { state in
+                    viewModel.handleUIState(state)
+                },
+                cardFormFooterEmbeddedContent: {
+                    checkBoxView
+                }
+            )
+       
+    }
+    
     ///
     var tokenizationView: some View {
         RozetkaPaySDK.TokenizationView(
@@ -123,6 +155,61 @@ private extension CardsListView {
                 isSheetPresented.toggle()
             }
         )
+    }
+    
+    
+    var checkBoxView: some View {
+        HStack {
+            Toggle(isOn: $isNeedToSaveTokenizedCard) {}
+                .toggleStyle(
+                    CheckBoxStyle(
+                        colorOn: .green,
+                        colorOff: .gray
+                    )
+                )
+                .labelsHidden()
+            
+            Text("Test checkbox text")
+                .font(.subheadline)
+            Spacer()
+        }
+
+        .padding(.top, 6)
+        .onChange(of: isNeedToSaveTokenizedCard) { newValue in
+            print()
+            Logger.tokenizedCard.info(
+                "👀 Checkbox is now \(newValue ? "ON" : "OFF")"
+            )
+        }
+    }
+    
+    struct CheckBoxStyle: ToggleStyle {
+        let colorOn: Color
+        let colorOff: Color
+        
+        func makeBody(configuration: Configuration) -> some View {
+            return Button(action: {
+                configuration.isOn.toggle()
+            }) {
+                Image(systemName: configuration.isOn ?
+                      Images.checkmarkSquareFill.name :
+                      Images.square.name
+                )
+                .resizable()
+                .frame(width: 26, height: 26)
+                .foregroundColor(
+                    configuration.isOn ? colorOn : colorOff
+                )
+                .overlay(
+                    Images.checkmark.image()
+                        .foregroundColor(.white)
+                        .opacity(
+                            configuration.isOn ? 1 : 0
+                        )
+                        .padding(4)
+                )
+            }
+        }
     }
 }
 

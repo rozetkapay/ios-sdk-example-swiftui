@@ -148,7 +148,7 @@ extension CartViewModel {
                 "Payment \(paymentId ?? "Without paymentId" ) is pending. Order ID: \(orderId). Message: \(message ?? "No message"). Error: \(error?.localizedDescription ?? "No error description")"
             )
         case let .complete(orderId, paymentId, tokenizedCard):
-            var text = "Payment \(paymentId) was successful. Order ID: \(orderId)"
+            var text = "✅ Payment \(paymentId) was successful. Order ID: \(orderId)"
             if let tokenizedCard = tokenizedCard {
                 text += "TokenizedCard: \(tokenizedCard.cardInfo?.maskedNumber ?? tokenizedCard.name ?? tokenizedCard.token)"
             }
