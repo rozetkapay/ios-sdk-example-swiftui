@@ -78,7 +78,7 @@ private extension CartView {
     ///
     var checkoutButton: some View {
         Button(action: {
-            isSheetPresented.toggle()
+            isSheetPresented = true
         }) {
             Text(Localization.cart_checkout_button_title.description)
                 .frame(maxWidth: .infinity)
@@ -223,7 +223,7 @@ private extension CartView {
             ,
             onResultCallback: { result in
                 viewModel.handleResult(result)
-                isSheetPresented.toggle()
+                isSheetPresented = false
             }
         )
     }

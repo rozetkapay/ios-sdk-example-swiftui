@@ -33,7 +33,6 @@ struct CardsListView: View {
         VStack(alignment: .leading) {
             titleView
             listView
-            Spacer()
             tokenizationContentView
             Spacer()
             addNewCardButton
@@ -95,7 +94,7 @@ private extension CardsListView {
     ///
     var addNewCardButton: some View {
         Button(action: {
-            isSheetPresented.toggle()
+            isSheetPresented = true
         }) {
             HStack {
                 Images.plus.image()
@@ -111,32 +110,40 @@ private extension CardsListView {
     }
     
     var tokenizationContentView: some View {
-        RozetkaPaySDK.TokenizationContentView(
-                parameters: TokenizationContentParameters(
-                    client: viewModel.clientWidgetParameters,
-                    viewParameters: TokenizationContentViewParameters(
-                        cardNameField: .none,
-                        emailField: .none,
-                        cardholderNameField: .none,
-                        isVisibleCardInfoTitle:  true,
-                        isVisibleCardInfoLegalView: true,
-                        stringResources: StringResources(
-                            cardFormTitle: "TEST",
-                            buttonTitle:"buttonTitle TEST"
-                        )
+        RozetkaPaySDK.TokenizationFormView(
+            parameters: TokenizationFormParameters(
+                client: viewModel.clientWidgetParameters,
+                viewParameters: TokenizationFormViewParameters(
+                    cardNameField: .none,
+                    emailField: .none,
+                    cardholderNameField: .none,
+                    isVisibleCardInfoTitle:  true,
+                    isVisibleCardInfoLegalView: true,
+                    stringResources: StringResources(
+                        cardFormTitle: "TEST",
+                        buttonTitle:"buttonTitle TEST"
                     )
                 ),
-                onResultCallback: { result in
-                    viewModel.handleResult(result)
-                },
-                stateUICallback: { state in
-                    viewModel.handleUIState(state)
-                },
-                cardFormFooterEmbeddedContent: {
-                    checkBoxView
-                }
-            )
-       
+                themeConfigurator: RozetkaPayThemeConfigurator(
+                    mode: .dark,
+                    sizes: RozetkaPayDomainThemeDefaults.sizes(
+                        mainButtonTopPadding: 50
+                    ),
+                    typography: RozetkaPayDomainThemeDefaults.typography(
+                        inputUI: UIFont.systemFont(ofSize: 6, weight: .regular)
+                    )
+                )
+            ),
+            onResultCallback: { result in
+                viewModel.handleResult(result)
+            },
+            stateUICallback: { state in
+                viewModel.handleUIState(state)
+            },
+            cardFormFooterEmbeddedContent: {
+                checkBoxView
+            }
+        )
     }
     
     ///
@@ -173,7 +180,6 @@ private extension CardsListView {
                 .font(.subheadline)
             Spacer()
         }
-
         .padding(.top, 6)
         .onChange(of: isNeedToSaveTokenizedCard) { newValue in
             print()
@@ -193,7 +199,7 @@ private extension CardsListView {
             }) {
                 Image(systemName: configuration.isOn ?
                       Images.checkmarkSquareFill.name :
-                      Images.square.name
+                        Images.square.name
                 )
                 .resizable()
                 .frame(width: 26, height: 26)

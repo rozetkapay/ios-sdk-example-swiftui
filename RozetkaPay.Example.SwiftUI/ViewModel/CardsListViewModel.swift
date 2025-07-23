@@ -77,7 +77,7 @@ private extension CardsViewModel {
 
 //MARK: - Methods
 extension CardsViewModel {
-    func handleUIState(_ state: TokenizationContentUIState) {
+    func handleUIState(_ state: TokenizationFormUIState) {
         switch state {
             
         case .startLoading:
@@ -162,7 +162,7 @@ extension CardsViewModel {
         }
     }
     
-    func handleResult(_ result: TokenizationContentResult) {
+    func handleResult(_ result: TokenizationFormResult) {
         switch result {
         case .complete(let value):
             alertItem = AlertItem(
