@@ -309,6 +309,9 @@
           }
         }
       }
+    },
+    "Test checkbox text" : {
+
     }
   },
   "version" : "1.0"

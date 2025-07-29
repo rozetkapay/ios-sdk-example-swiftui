@@ -76,7 +76,7 @@ private extension BatchCartView {
     ///
     var checkoutButton: some View {
         Button(action: {
-            isSheetPresented.toggle()
+            isSheetPresented = true
         }) {
             Text(Localization.batch_cart_checkout_button_title.description)
                 .frame(maxWidth: .infinity)
@@ -257,7 +257,7 @@ private extension BatchCartView {
             ),
             onResultCallback: { result in
                 viewModel.handleResult(result)
-                isSheetPresented.toggle()
+                isSheetPresented = false
             }
         )
     }
