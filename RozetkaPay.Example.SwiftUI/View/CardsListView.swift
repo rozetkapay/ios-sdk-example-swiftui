@@ -14,6 +14,7 @@ struct CardsListView: View {
     @StateObject var viewModel: CardsViewModel
     @State private var isSheetPresented = false
     @State private var alertItem: AlertItem?
+    @State private var isNeedToSaveTokenizedCard = false
     @Environment(\.presentationMode) var presentationMode
     
     //MARK: - Init
@@ -32,6 +33,7 @@ struct CardsListView: View {
         VStack(alignment: .leading) {
             titleView
             listView
+            tokenizationContentView
             Spacer()
             addNewCardButton
         }
@@ -92,7 +94,7 @@ private extension CardsListView {
     ///
     var addNewCardButton: some View {
         Button(action: {
-            isSheetPresented.toggle()
+            isSheetPresented = true
         }) {
             HStack {
                 Images.plus.image()
@@ -105,6 +107,43 @@ private extension CardsListView {
         }
         .padding(.bottom, 20)
         .frame(maxWidth: .infinity, alignment: .center)
+    }
+    
+    var tokenizationContentView: some View {
+        RozetkaPaySDK.TokenizationFormView(
+            parameters: TokenizationFormParameters(
+                client: viewModel.clientWidgetParameters,
+                viewParameters: TokenizationFormViewParameters(
+                    cardNameField: .none,
+                    emailField: .none,
+                    cardholderNameField: .none,
+                    isVisibleCardInfoTitle:  true,
+                    isVisibleCardInfoLegalView: true,
+                    stringResources: StringResources(
+                        cardFormTitle: "TEST",
+                        buttonTitle:"buttonTitle TEST"
+                    )
+                ),
+                themeConfigurator: RozetkaPayThemeConfigurator(
+                    mode: .dark,
+                    sizes: RozetkaPayDomainThemeDefaults.sizes(
+                        mainButtonTopPadding: 50
+                    ),
+                    typography: RozetkaPayDomainThemeDefaults.typography(
+                        inputUI: UIFont.systemFont(ofSize: 6, weight: .regular)
+                    )
+                )
+            ),
+            onResultCallback: { result in
+                viewModel.handleResult(result)
+            },
+            stateUICallback: { state in
+                viewModel.handleUIState(state)
+            },
+            cardFormFooterEmbeddedContent: {
+                checkBoxView
+            }
+        )
     }
     
     ///
@@ -123,6 +162,60 @@ private extension CardsListView {
                 isSheetPresented.toggle()
             }
         )
+    }
+    
+    
+    var checkBoxView: some View {
+        HStack {
+            Toggle(isOn: $isNeedToSaveTokenizedCard) {}
+                .toggleStyle(
+                    CheckBoxStyle(
+                        colorOn: .green,
+                        colorOff: .gray
+                    )
+                )
+                .labelsHidden()
+            
+            Text("Test checkbox text")
+                .font(.subheadline)
+            Spacer()
+        }
+        .padding(.top, 6)
+        .onChange(of: isNeedToSaveTokenizedCard) { newValue in
+            print()
+            Logger.tokenizedCard.info(
+                "👀 Checkbox is now \(newValue ? "ON" : "OFF")"
+            )
+        }
+    }
+    
+    struct CheckBoxStyle: ToggleStyle {
+        let colorOn: Color
+        let colorOff: Color
+        
+        func makeBody(configuration: Configuration) -> some View {
+            return Button(action: {
+                configuration.isOn.toggle()
+            }) {
+                Image(systemName: configuration.isOn ?
+                      Images.checkmarkSquareFill.name :
+                        Images.square.name
+                )
+                .resizable()
+                .frame(width: 26, height: 26)
+                .foregroundColor(
+                    configuration.isOn ? colorOn : colorOff
+                )
+                .overlay(
+                    Images.checkmark.image()
+                        .foregroundColor(.white)
+                        .opacity(
+                            configuration.isOn ? 1 : 0
+                        )
+                        .padding(4)
+                )
+            }
+        }
     }
 }
 

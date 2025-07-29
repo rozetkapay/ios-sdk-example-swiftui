@@ -77,17 +77,50 @@ private extension CardsViewModel {
 
 //MARK: - Methods
 extension CardsViewModel {
+    func handleUIState(_ state: TokenizationFormUIState) {
+        switch state {
+            
+        case .startLoading:
+            Logger.tokenizedCard.info(
+                "🎬 StartLoading UI STATE"
+            )
+        case .stopLoading:
+            Logger.tokenizedCard.info(
+                "🏁 StopLoading UI STATE "
+            )
+        case .error(let message):
+            Logger.tokenizedCard.warning(
+                "⚠️ WARNING UI STATE: An error with message \"\(message)\". Please try again. ⚠️"
+            )
+        case .success:
+            
+            Logger.tokenizedCard.info(
+                "✅ Susses UI STATE: Tokenization card was successful."
+            )
+            
+        }
+        
+    }
     
     func handleResult(_ result: TokenizationResult) {
         switch result {
-        case .success(let value):
+        case .complete(let value):
             alertItem = AlertItem(
                 type: .success,
                 title: "Successful",
                 message: "Tokenization card was successful."
             )
+            Logger.tokenizedCard.info(
+                "✅ Susses: Tokenization card was successful."
+            )
+            
+            let valueDescription: String = value.debugDescription
+            Logger.tokenizedCard.info(
+                "✅ Susses: Tokenization card information: \(valueDescription)."
+            )
+            
             addNewCard(tokenizedCard: value)
-        case .failure(let error):
+        case .failed(let error):
             switch error {
             case let .failed(message, _):
                 if let message = message, !message.isEmpty {
@@ -118,6 +151,72 @@ extension CardsViewModel {
                 
                 Logger.tokenizedCard.info("Tokenization was cancelled manually by user")
             }
+        case .cancelled:
+            alertItem = AlertItem(
+                type: .info,
+                title: "Cancelled",
+                message: "Tokenization was cancelled manually by the user."
+            )
+            
+            Logger.tokenizedCard.info("Tokenization was cancelled manually by user")
+        }
+    }
+    
+    func handleResult(_ result: TokenizationFormResult) {
+        switch result {
+        case .complete(let value):
+            alertItem = AlertItem(
+                type: .success,
+                title: "Successful",
+                message: "Tokenization card was successful."
+            )
+            Logger.tokenizedCard.info(
+                "✅ Susses: Tokenization card was successful."
+            )
+            let valueDescription: String = value.debugDescription
+            Logger.tokenizedCard.info(
+                "✅ Susses: Tokenization card information: \(valueDescription)."
+            )
+            addNewCard(tokenizedCard: value)
+        case .failed(let error):
+            switch error {
+            case let .failed(message, _):
+                if let message = message, !message.isEmpty {
+                    alertItem = AlertItem(
+                        type: .error,
+                        title: "Failed",
+                        message: "Tokenization of card failed with message: \(message)."
+                    )
+                    Logger.tokenizedCard.warning(
+                        "⚠️ WARNING: An error with message \"\(message)\". Please try again. ⚠️"
+                    )
+                } else {
+                    alertItem = AlertItem(
+                        type: .error,
+                        title: "Failed",
+                        message: "An unknown error occurred with card tokenization. Please try again."
+                    )
+                    Logger.tokenizedCard.warning(
+                        "⚠️ WARNING: An error occurred during tokenization process. Please try again. ⚠️"
+                    )
+                }
+            case .cancelled:
+                alertItem = AlertItem(
+                    type: .info,
+                    title: "Cancelled",
+                    message: "Tokenization was cancelled manually by the user."
+                )
+                
+                Logger.tokenizedCard.info("Tokenization was cancelled manually by user")
+            }
+        case .cancelled:
+            alertItem = AlertItem(
+                type: .info,
+                title: "Cancelled",
+                message: "Tokenization was cancelled manually by the user."
+            )
+            
+            Logger.tokenizedCard.info("Tokenization was cancelled manually by user")
         }
     }
 }
