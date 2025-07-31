@@ -33,7 +33,7 @@ struct CardsListView: View {
         VStack(alignment: .leading) {
             titleView
             listView
-            tokenizationContentView
+            tokenizationFormView
             Spacer()
             addNewCardButton
         }
@@ -109,7 +109,7 @@ private extension CardsListView {
         .frame(maxWidth: .infinity, alignment: .center)
     }
     
-    var tokenizationContentView: some View {
+    var tokenizationFormView: some View {
         RozetkaPaySDK.TokenizationFormView(
             parameters: TokenizationFormParameters(
                 client: viewModel.clientWidgetParameters,
@@ -130,7 +130,11 @@ private extension CardsListView {
                         mainButtonTopPadding: 50
                     ),
                     typography: RozetkaPayDomainThemeDefaults.typography(
-                        inputUI: UIFont.systemFont(ofSize: 6, weight: .regular)
+                        inputTextStyle: DomainTextStyle.init(
+                            fontSize: 6,
+                            lineHeight: 8,
+                            fontWeight: .normal
+                        )
                     )
                 )
             ),
@@ -182,7 +186,6 @@ private extension CardsListView {
         }
         .padding(.top, 6)
         .onChange(of: isNeedToSaveTokenizedCard) { newValue in
-            print()
             Logger.tokenizedCard.info(
                 "👀 Checkbox is now \(newValue ? "ON" : "OFF")"
             )

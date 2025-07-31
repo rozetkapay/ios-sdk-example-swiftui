@@ -67,9 +67,9 @@ private extension CardsViewModel {
     
     private func addNewCard(tokenizedCard: TokenizedCard) {
         add(item: CardToken(
-            paymentSystem: tokenizedCard.cardInfo?.paymentSystem,
+            paymentSystem: tokenizedCard.cardInfo.paymentSystem,
             name: tokenizedCard.name,
-            maskedNumber: tokenizedCard.cardInfo?.maskedNumber ,
+            maskedNumber: tokenizedCard.cardInfo.maskedNumber ,
             cardToken: tokenizedCard.token
         ))
     }

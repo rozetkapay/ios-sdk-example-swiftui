@@ -216,7 +216,7 @@ extension BatchCartViewModel {
         case let .complete(batchExternalId, ordersPayments, tokenizedCard):
             var text = "BatchPayment was successful. External ID: \(batchExternalId)"
             if let tokenizedCard = tokenizedCard {
-                text += "TokenizedCard: \(tokenizedCard.cardInfo?.maskedNumber ?? tokenizedCard.name ?? tokenizedCard.token)"
+                text += "TokenizedCard: \(tokenizedCard.debugDescription)"
             }
             alertItem = AlertItem(
                 type: .success,
