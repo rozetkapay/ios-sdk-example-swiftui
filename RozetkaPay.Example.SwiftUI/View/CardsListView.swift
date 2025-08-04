@@ -130,10 +130,9 @@ private extension CardsListView {
                         mainButtonTopPadding: 50
                     ),
                     typography: RozetkaPayDomainThemeDefaults.typography(
-                        inputTextStyle: DomainTextStyle.init(
-                            fontSize: 6,
-                            lineHeight: 8,
-                            fontWeight: .normal
+                        fontFamily: .default,
+                        inputTextStyle: DomainTypographyDefaults.input(
+                            fontSize: 16
                         )
                     )
                 )
