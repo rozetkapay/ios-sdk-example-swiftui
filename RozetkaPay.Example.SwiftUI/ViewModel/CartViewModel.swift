@@ -136,6 +136,22 @@ extension CartViewModel {
         return orderId
     }
         
+    func handleApplePayFormUIState(_ state: ApplePayFormUIState) {
+        switch state {
+        case .startLoading:
+            Logger.payment.info("🎬 ApplePayForm StartLoading UI STATE")
+        case .stopLoading:
+            Logger.payment.info("🏁 ApplePayForm StopLoading UI STATE")
+        case .error(let message):
+            // Alert is shown by handleResult(.failed) — here only log the UI state.
+            Logger.payment.warning(
+                "⚠️ WARNING ApplePayForm UI STATE: An error with message \"\(message)\". Please try again. ⚠️"
+            )
+        case .success:
+            Logger.payment.info("✅ ApplePayForm Success UI STATE: Payment was successful.")
+        }
+    }
+
     func handleResult(_ result: PaymentResult) {
         switch result {
         case let .pending(orderId, paymentId, message, error):

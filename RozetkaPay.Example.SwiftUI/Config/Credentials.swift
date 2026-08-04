@@ -73,10 +73,10 @@ struct Credentials {
     
     //MARK: - Production
     private struct Production: EnvironmentCredentials {
-        let WIDGET_KEY = "7zFsk43VTYaDZoF0iA7FLKl6l0Cj+6uMxiZmKS1guUt0XKYjSKvAOkUXFihVe60k"
+        let WIDGET_KEY = "Bujzvr5EQd+cP9QeimLcMDjwtqVBXUSQxhs2ACpzYaR2mDmBlHPpLp8y5skjVrYg"
         
-        let LOGIN = "a6a29002-dc68-4918-bc5d-51a6094b14a8"
-        let PASSWORD = "XChz3J8qrr"
+        let LOGIN = "06e8f3be-be44-41df-9c3f-d41e8a62dc30"
+        let PASSWORD = "VE50V0ZMY0RsRTdzeFl1QzJQdXpFQ3d1"
         
         var AUTH_TOKEN: String {
             Credentials.makeAuthToken(login: LOGIN, password: PASSWORD)
