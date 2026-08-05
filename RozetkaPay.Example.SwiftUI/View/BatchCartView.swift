@@ -38,6 +38,7 @@ struct BatchCartView: View {
             Spacer()
             checkBoxView
             checkoutButton
+            applePayFormButton
         }
         .navigationBarTitle(Localization.batch_cart_navigation_bar_title.description, displayMode: .inline)
         .navigationBarBackButtonHidden(true)
@@ -89,7 +90,34 @@ private extension BatchCartView {
         .padding(.top, 20)
         .padding([.leading, .trailing])
     }
-    
+
+    ///
+    var applePayFormButton: some View {
+        RozetkaPaySDK.ApplePayFormView(
+            batchParameters: BatchApplePayFormParameters(
+                client: viewModel.clientParameters,
+                applePayConfig: viewModel.testApplePayConfig,
+                amountParameters: AmountParameters(
+                    amount: viewModel.totalNetAmountInCoins,
+                    tax: viewModel.totalVatAmountInCoins,
+                    total: viewModel.totalAmountInCoins,
+                    currencyCode: Config.defaultCurrencyCode
+                ),
+                externalId: viewModel.externalId,
+                callbackUrl: Config.exampleCallbackUrl,
+                orders: viewModel.orders.mapToBatchOrder()
+            ),
+            onResultCallback: { result in
+                viewModel.handleResult(result)
+            },
+            stateUICallback: { state in
+                viewModel.handleApplePayFormUIState(state)
+            }
+        )
+        .padding(.top, 8)
+        .padding([.leading, .trailing])
+    }
+
     ///
     var listView: some View {
         List {

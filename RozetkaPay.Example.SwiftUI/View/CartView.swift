@@ -40,6 +40,7 @@ struct CartView: View {
             Spacer()
             checkBoxView
             checkoutButton
+            applePayFormButton
         }
         .navigationBarTitle(Localization.cart_navigation_bar_title.description, displayMode: .inline)
         .navigationBarBackButtonHidden(true)
@@ -91,7 +92,33 @@ private extension CartView {
         .padding(.top, 20)
         .padding([.leading, .trailing])
     }
-    
+
+    ///
+    var applePayFormButton: some View {
+        RozetkaPaySDK.ApplePayFormView(
+            parameters: ApplePayFormParameters(
+                client: viewModel.clientParameters,
+                applePayConfig: viewModel.testApplePayConfig,
+                amountParameters: AmountParameters(
+                    amount: viewModel.totalNetAmountInCoins,
+                    tax: viewModel.totalVatAmountInCoins,
+                    total: viewModel.totalAmountInCoins,
+                    currencyCode: Config.defaultCurrencyCode
+                ),
+                externalId: viewModel.orderId,
+                callbackUrl: Config.exampleCallbackUrl
+            ),
+            onResultCallback: { result in
+                viewModel.handleResult(result)
+            },
+            stateUICallback: { state in
+                viewModel.handleApplePayFormUIState(state)
+            }
+        )
+        .padding(.top, 8)
+        .padding([.leading, .trailing])
+    }
+
     ///
     var listView: some View {
         List(viewModel.items) { item in
